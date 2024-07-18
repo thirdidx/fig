@@ -1,16 +1,26 @@
+/* eslint-disable @next/next/no-img-element */
+import { motion, useCycle } from 'framer-motion'
 import Link from 'next/link'
+import { useRef, useState } from 'react'
+
+import { Sidebar } from '~/components/Sidebar'
+
+import { MenuToggle } from './MenuToggle'
 
 export default function Container({ children }: { children: React.ReactNode }) {
+  // const [isOpen, toggleOpen] = useCycle(false, true)
   return (
-    <div className="container">
-      <header className="header">
-        <Link className="header__title" href="/">
-          Next.js + Sanity
+    <div className="wrap">
+      <header>
+        <Link className="w-[32px] md:w-[90px]" href="/">
+          <img src="/logo.svg" alt="" className="w-[32px] md:w-[90px] h-auto" />
         </Link>
+        {/* <MenuToggle toggle={() => toggleOpen()} /> */}
       </header>
       <main>{children}</main>
+      <Sidebar />
       <footer className="footer">
-        <p className="footer__text">
+        {/* <p className="footer__text">
           Made with{' '}
           <svg
             datasanity-icon="heart-filled"
@@ -28,7 +38,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
             ></path>
           </svg>{' '}
           at Sanity
-        </p>
+        </p> */}
       </footer>
     </div>
   )
