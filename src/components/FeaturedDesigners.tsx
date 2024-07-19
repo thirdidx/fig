@@ -1,34 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 export default function FeaturedDesigners() {
   return (
-    <section className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 max-w-[1118px] mx-auto w-full">
-      <div className="p-4 md:p-8 flex">
-        <div className="flex gap-x-4 relative bg-black overflow-hidden border border-black">
-          <div className="bg-white text-black w-[60px] relative">
-            <div className="absolute left-0 top-1/2 -rotate-90 w-max text-center -translate-x-[48px] -translate-y-1/2">
-              <span className="text-base md:text-[17px] vaneer uppercase tracking-widest">
-                featured designer
-              </span>
-            </div>
-          </div>
-          <div className="p-4 flex items-center justify-center">
-            <img
-              src="/designer-headshot.png"
-              alt=""
-              className="!w-[222px] h-auto block"
-            />
-          </div>
-          <div className="p-4 flex flex-col gap-4 justify-center">
-            <h2 className="text-white text-[37px] leading-none">
-              Designer Name Here
-            </h2>
-            <button className="btn !border-white !border-1 w-max uppercase text-[21px] p-2">
-              See More
-            </button>
+    <section className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 max-w-[1020px] mx-auto w-full">
+      <div className="flex relative bg-black overflow-hidden border border-black mx-4 md:mx-0">
+        <div className="bg-white text-black w-[60px] relative">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 origin-center w-max text-center">
+            <span className="text-base md:text-[17px] vaneer uppercase tracking-[3px]">
+              featured designer
+            </span>
           </div>
         </div>
+        <div className="p-4 md:px-8 md:py-6 w-[286px] flex items-center justify-center">
+          <img
+            src="/designer-headshot.png"
+            alt=""
+            className="w-[222px] h-auto"
+          />
+        </div>
+        <div className="flex flex-col gap-4 justify-center max-w-[170px] pr-4">
+          <h2 className="text-white text-2xl md:text-[37px] leading-none">
+            Designer Name Here
+          </h2>
+          <button className="btn !border-white !border-[1px] w-max uppercase text-[21px] py-px px-2">
+            See More
+          </button>
+        </div>
       </div>
-      <div className="p-4 md:p-8 flex flex-col gap-y-4">
+
+      <div className="p-4 md:p-8 flex flex-col gap-y-6">
         <h2 className="text-2xl md:text-[37px]">Behind The Designs</h2>
         <p>
           Fashion is personal. Here’s your chance to get to know the

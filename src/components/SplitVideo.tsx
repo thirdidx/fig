@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 export default function SplitVideo() {
   return (
-    <section className="bg-black">
-      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-y-4 w-full max-w-[1154px] mx-auto p-4 md:p-10">
+    <section className="bg-black py-10 px-4 md:px-0">
+      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-y-4 w-full max-w-[1020px] mx-auto">
         <div className="border border-gold flex items-center justify-center h-[282px]">
           <img className="w-[48px] h-auto" src="/i-play.svg" alt="" />
         </div>
@@ -16,7 +16,7 @@ export default function SplitVideo() {
             you&rsquo;re a seasoned professional or an emerging talent,
             there&rsquo;s a place for you at the FIG Fashion Show.
           </p>
-          <button className="btn !border-white !border-1 w-max uppercase text-[33px] p-0">
+          <button className="btn !border-white !border-[1px] w-max uppercase text-[33px] p-0">
             Join Us
           </button>
         </div>

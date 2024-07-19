@@ -35,7 +35,7 @@ h6,
 }
 
 .btn {
-  @apply border-[3px] border-[#9A1914] bg-transparent text-white px-5 py-1.5 rounded-2xl uppercase inline-flex;
+  @apply border-[3px] border-[#9A1914] bg-transparent text-white px-5 py-1.5 rounded-2xl uppercase leading-none flex items-center justify-center;
   font-family: 'Veneer', 'Arial', sans-serif;
 }
 

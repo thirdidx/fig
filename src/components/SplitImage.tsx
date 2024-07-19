@@ -5,7 +5,7 @@ import { useMediaQuery } from '~/lib/use-media-query'
 export default function SplitImage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
   return (
-    <section className="md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:-mt-1 min-h-[495px] mb-10">
+    <section className="md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:-mt-1 min-h-[495px]">
       {isDesktop ? (
         <div className="relative">
           <Image

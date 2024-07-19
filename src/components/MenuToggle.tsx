@@ -3,6 +3,7 @@ import * as React from 'react'
 
 const Path = (props) => (
   <motion.path
+    className="mix-blend-difference"
     fill="currentColor"
     strokeWidth="2"
     stroke="hsl(0, 0%, 100%)"
@@ -13,7 +14,10 @@ const Path = (props) => (
 
 export default function MenuToggle({ toggle }) {
   return (
-    <button className="fixed top-5 right-5 z-50" onClick={toggle}>
+    <button
+      className="fixed top-5 right-5 z-50 mix-blend-difference"
+      onClick={toggle}
+    >
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           variants={{

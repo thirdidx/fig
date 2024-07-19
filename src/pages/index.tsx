@@ -44,7 +44,7 @@ export default function IndexPage(
       <Hero />
       <Intro />
       <SplitImage />
-      <div className="flex flex-col gap-y-10 md:gap-y-20 bg-white">
+      <div className="flex flex-col gap-y-10 md:gap-y-20 bg-white pt-10">
         <FeaturedDesigners />
         <Sponsorship />
         <SplitVideo />

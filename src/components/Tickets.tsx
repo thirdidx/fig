@@ -14,7 +14,7 @@ const pricing = {
     {
       name: 'General Admission',
       id: 'ga',
-      href: '#',
+      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$50', annually: '$50' },
       description: 'Lorem ipsum dolor sit amet consectetur.',
       features: ['.', '..', '...'],
@@ -23,7 +23,7 @@ const pricing = {
     {
       name: 'VIP',
       id: 'vip',
-      href: '#',
+      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$200', annually: '$200' },
       description: 'Lorem ipsum dolor sit amet consectetur.',
       features: ['.', '..', '...', '....'],
@@ -32,7 +32,7 @@ const pricing = {
     {
       name: 'Runway Table (4 guests)',
       id: 'runway-table',
-      href: '#',
+      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$2,500', annually: '$2,500' },
       description: 'For Supporting Sponsors. Lorem ipsum dolor',
       features: ['.', '..', '...', '....', '.....'],
@@ -69,14 +69,15 @@ export default function Tickets() {
       {/* Pricing section */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-[37px]">Purchase Tickets</h2>
+          <h2 className="text-[37px]">Upcoming Events</h2>
         </div>
-        <p className="mx-auto mt-4 max-w-md text-center text-lg leading-8 text-gray-600">
+        <p className="mx-auto mt-4 max-w-lg text-center">
           An evening of fashion, art, and culture. Join us for the Fig Fashion
-          Show, Volume 2, on September 28, 2024.
+          Show, Volume 2, on{' '}
+          <span className="text-rose">September 28, 2024</span>.
         </p>
 
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
+        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-3 lg:max-w-4xl xl:mx-0 xl:max-w-none">
           {pricing.tiers.map((tier) => (
             <div
               key={tier.id}
@@ -101,9 +102,10 @@ export default function Tickets() {
                 <span className="text-4xl font-bold tracking-tight text-gray-900">
                   {tier.price[frequency.value]}
                 </span>
-                {/* <span className="text-sm font-semibold leading-6 text-gray-600">
-                  {frequency.priceSuffix}
-                </span> */}
+                <span className="text-sm font-semibold leading-6 text-gray-600">
+                  {/* {frequency.priceSuffix} */}
+                  per ticket
+                </span>
               </p>
               <a
                 href={tier.href}
@@ -112,12 +114,12 @@ export default function Tickets() {
                   tier.mostPopular
                     ? 'bg-rose text-white shadow-sm hover:accent'
                     : 'text-rose ring-1 ring-inset ring-gray-200 hover:ring-accept',
-                  'mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose',
+                  'mt-6 block rounded-md px-3 py-2 text-center text-2xl vaneer uppercase leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose',
                 )}
               >
                 Buy tickets
               </a>
-              {/* <ul
+              <ul
                 role="list"
                 className="mt-8 space-y-3 text-sm leading-6 text-gray-600"
               >
@@ -130,7 +132,7 @@ export default function Tickets() {
                     {feature}
                   </li>
                 ))}
-              </ul> */}
+              </ul>
             </div>
           ))}
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react'
 
 import { Card, CardContent } from '~/components/ui/card'
@@ -9,23 +10,48 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel'
 
+const sponsors = [
+  {
+    name: 'Evans Bank',
+    href: '#',
+    image: '/logo-evans.svg',
+  },
+  {
+    name: 'FourthIdea',
+    href: '#',
+    image: '/logo-fourthidea.svg',
+  },
+  {
+    name: 'Delaware North',
+    href: '#',
+    image: '/logo-delawarenorth.jpg',
+  },
+  {
+    name: 'Richs',
+    href: '#',
+    image: '/logo-riches.jpg',
+  },
+  {
+    name: 'IDK',
+    href: '#',
+    image: '/logo-idk.jpeg',
+  },
+]
+
 function SponsorsCarousel() {
   return (
     <Carousel
       opts={{
         align: 'start',
       }}
-      className="w-full max-w-[960px] mx-auto"
+      className="w-full max-w-[1020px] mx-auto px-4 md:px-0"
     >
       <CarouselContent>
-        {Array.from({ length: 8 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+        {[...sponsors, ...sponsors].map(({ name, href, image }, index) => (
+          <CarouselItem key={index} className="basis-1/3 lg:basis-1/5">
+            <div className="flex items-center justify-center p-4 select-none">
+              {/* <span className="text-3xl font-semibold"></span> */}
+              <img src={image} alt={name} className="object-contain h-20" />
             </div>
           </CarouselItem>
         ))}
@@ -38,7 +64,7 @@ function SponsorsCarousel() {
 
 export default function Sponsorship() {
   return (
-    <section className="text-center flex flex-col gap-4">
+    <section className="text-center flex flex-col gap-y-8 items-center px-4 md:px-0">
       <h2 className="text-2xl md:text-[37px]">
         Sponsorship Is Always In Style
       </h2>
@@ -48,6 +74,9 @@ export default function Sponsorship() {
       </p>
 
       <SponsorsCarousel />
+      <button className="btn !border-none !border-1 w-max uppercase text-[21px] !px-4 !bg-accent text-white">
+        Sponsorship
+      </button>
     </section>
   )
 }
