@@ -20,7 +20,7 @@ body {
 }
 
 p {
-  @apply text-[19px];
+  @apply text-[15px] md:text-[19px];
 }
 
 h1,
@@ -40,12 +40,12 @@ h6,
 }
 
 /* Layout */
-.wrap > header {
-  @apply flex justify-between items-start p-4 w-full max-h-[104px] fixed top-0 left-0 text-white z-50;
+.wrap {
+  @apply w-screen min-h-screen overflow-x-hidden;
 }
 
-img {
-  display: block;
+.wrap > header {
+  @apply flex justify-between items-start p-4 w-full max-h-[104px] fixed top-0 left-0 text-white z-50;
 }
 
 @font-face {

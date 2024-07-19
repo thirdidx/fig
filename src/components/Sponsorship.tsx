@@ -39,7 +39,9 @@ function SponsorsCarousel() {
 export default function Sponsorship() {
   return (
     <section className="text-center flex flex-col gap-4">
-      <h2 className="text-[37px]">Sponsorship Is Always In Style</h2>
+      <h2 className="text-2xl md:text-[37px]">
+        Sponsorship Is Always In Style
+      </h2>
       <p className="text-[15px]">
         Fashion is personal. Here’s your chance to get to know the inspiration,
         vision, and drive that each designer brings to the FIG Runway.

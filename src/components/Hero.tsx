@@ -33,7 +33,7 @@ export default function Hero() {
       <img
         src="/fig-vol2.svg"
         alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 md:w-full h-auto max-w-[467px] z-[3]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 lg:w-full h-auto max-w-[467px] z-[3]"
       />
     </div>
   )
