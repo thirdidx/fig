@@ -36,7 +36,7 @@ function SponsorsCarousel() {
   )
 }
 
-export default function Sponsors() {
+export default function Sponsorship() {
   return (
     <section className="text-center flex flex-col gap-4">
       <h2 className="text-[37px]">Sponsorship Is Always In Style</h2>

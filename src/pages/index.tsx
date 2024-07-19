@@ -9,7 +9,7 @@ import {
   SiteFooter,
   SplitImage,
   SplitVideo,
-  Sponsors,
+  Sponsorship,
   Tickets,
 } from '~/components/'
 // import { useLiveQuery } from 'next-sanity/preview'
@@ -46,7 +46,7 @@ export default function IndexPage(
       <SplitImage />
       <div className="flex flex-col gap-y-10 md:gap-y-20 bg-white">
         <FeaturedDesigners />
-        <Sponsors />
+        <Sponsorship />
         <SplitVideo />
         <Tickets />
         <FAQ />
