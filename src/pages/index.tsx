@@ -1,16 +1,18 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
+import {
+  Container,
+  FAQ,
+  FeaturedDesigners,
+  Hero,
+  Intro,
+  SiteFooter,
+  SplitImage,
+  SplitVideo,
+  Sponsors,
+  Tickets,
+} from '~/components/'
 // import { useLiveQuery } from 'next-sanity/preview'
-import Container from '~/components/Container'
-import FAQ from '~/components/FAQ'
-import FeaturedDesigners from '~/components/FeaturedDesigners'
-import { SiteFooter } from '~/components/Footer'
-import Hero from '~/components/Hero'
-import Intro from '~/components/Intro'
-import SplitImage from '~/components/SplitImage'
-import SplitVideo from '~/components/SplitVideo'
-import Sponsors from '~/components/Sponsors'
-import Tickets from '~/components/Tickets'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'

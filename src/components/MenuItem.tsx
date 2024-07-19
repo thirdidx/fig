@@ -20,7 +20,7 @@ const variants = {
   },
 }
 
-export const MenuItem = ({ i, name, isPrimary, isButton }) => {
+export default function MenuItem({ i, name, isPrimary, isButton }) {
   return (
     <motion.li
       className={cn(

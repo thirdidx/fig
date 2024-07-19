@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import * as React from 'react'
 
-import { MenuItem } from './MenuItem'
+import { MenuItem } from './'
 
 const variants = {
   open: {
@@ -11,23 +11,6 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 }
-
-export const Navigation = () => (
-  <motion.ul
-    variants={variants}
-    className="flex flex-col z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max"
-  >
-    {items.map(({ name, href, isPrimary, isButton }, i) => (
-      <MenuItem
-        key={i}
-        i={i}
-        name={name}
-        isPrimary={isPrimary}
-        isButton={isButton}
-      />
-    ))}
-  </motion.ul>
-)
 
 const items = [
   { name: 'THE FIG STORY', href: '/', isPrimary: true },
@@ -39,3 +22,22 @@ const items = [
   { name: 'Contact us', href: '/', isPrimary: false },
   { name: 'Buy Tickets', href: '/', isPrimary: false, isButton: true },
 ]
+
+export default function Navigation() {
+  return (
+    <motion.ul
+      variants={variants}
+      className="flex flex-col z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max"
+    >
+      {items.map(({ name, href, isPrimary, isButton }, i) => (
+        <MenuItem
+          key={i}
+          i={i}
+          name={name}
+          isPrimary={isPrimary}
+          isButton={isButton}
+        />
+      ))}
+    </motion.ul>
+  )
+}

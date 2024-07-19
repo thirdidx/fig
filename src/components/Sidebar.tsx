@@ -4,8 +4,7 @@ import { motion, useCycle } from 'framer-motion'
 import * as React from 'react'
 import { useRef } from 'react'
 
-import { MenuToggle } from '~/components/MenuToggle'
-import { Navigation } from '~/components/Navigation'
+import { MenuToggle, Navigation } from '~/components'
 import { useDimensions } from '~/lib/use-dimensions'
 
 const drawer = {
@@ -47,7 +46,7 @@ const drawer = {
   // },
 }
 
-export const Sidebar = () => {
+export default function Sidebar() {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef(null)
   const { height } = useDimensions(containerRef)
