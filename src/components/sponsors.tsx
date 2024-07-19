@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from '~/components/ui/carousel'
 
-export function Sponsors() {
+function SponsorsCarousel() {
   return (
     <Carousel
       opts={{
@@ -33,5 +33,19 @@ export function Sponsors() {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
+  )
+}
+
+export default function Sponsors() {
+  return (
+    <section className="text-center flex flex-col gap-4">
+      <h2 className="text-[37px]">Sponsorship Is Always In Style</h2>
+      <p className="text-[15px]">
+        Fashion is personal. Here’s your chance to get to know the inspiration,
+        vision, and drive that each designer brings to the FIG Runway.
+      </p>
+
+      <SponsorsCarousel />
+    </section>
   )
 }

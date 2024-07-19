@@ -65,19 +65,15 @@ export default function Tickets() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
 
   return (
-    <div className="bg-white">
+    <section className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center text-center">
       {/* Pricing section */}
-      <div className="mx-auto mt-10 max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-base font-semibold leading-7 text-rose">
-            Tickets
-          </h1>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            ...for the best seats in the house
-          </p>
+          <h2 className="text-[37px]">Purchase Tickets</h2>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        <p className="mx-auto mt-4 max-w-md text-center text-lg leading-8 text-gray-600">
+          An evening of fashion, art, and culture. Join us for the Fig Fashion
+          Show, Volume 2, on September 28, 2024.
         </p>
 
         <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3">
@@ -192,6 +188,6 @@ export default function Tickets() {
           </p>
         </div>
       </div> */}
-    </div>
+    </section>
   )
 }

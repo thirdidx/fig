@@ -1,23 +1,35 @@
+'use client'
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
 
-import { urlForImage } from '~/lib/sanity.image'
-import { type Post } from '~/lib/sanity.queries'
-import { formatDate } from '~/utils'
+import { useMediaQuery } from '~/lib/use-media-query'
 
 export default function Hero() {
+  const isXLScreen = useMediaQuery('(min-width: 1280px)')
+
   return (
-    <div className="relative -mt-1 -mb-1 z-[1] w-full">
-      <Image
-        src="/hero-bg.jpg"
-        quality={80}
-        priority
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: '100%', height: 'auto' }} // optional
-        alt=""
-      />
+    <div className="relative -mt-1 -mb-1 z-[1] w-full xl:h-screen">
+      {isXLScreen ? (
+        <Image
+          src="/hero-bg.jpg"
+          quality={80}
+          priority
+          fill
+          style={{ objectFit: 'cover' }}
+          alt=""
+        />
+      ) : (
+        <Image
+          src="/hero-bg.jpg"
+          quality={80}
+          priority
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }} // optional
+          alt=""
+        />
+      )}
       <img
         src="/fig-vol2.svg"
         alt=""

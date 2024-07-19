@@ -41,7 +41,7 @@ h6,
 
 /* Layout */
 .wrap > header {
-  @apply flex justify-between items-start p-4 w-full max-h-[104px] fixed top-0 left-0 text-white z-10;
+  @apply flex justify-between items-start p-4 w-full max-h-[104px] fixed top-0 left-0 text-white z-50;
 }
 
 img {
