@@ -12,30 +12,43 @@ const pricing = {
   ],
   tiers: [
     {
-      name: 'General Admission',
+      name: 'General Admission Ticket',
       id: 'ga',
       href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$50', annually: '$50' },
-      description: 'Lorem ipsum dolor sit amet consectetur.',
-      features: ['.', '..', '...'],
+      description: 'Standing room during show.',
+      features: ['Cash bar'],
       mostPopular: false,
     },
+
     {
-      name: 'VIP',
+      name: 'VIP Ticket',
       id: 'vip',
       href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$200', annually: '$200' },
-      description: 'Lorem ipsum dolor sit amet consectetur.',
-      features: ['.', '..', '...', '....'],
+      description: 'First and second row seating (first come first serve)',
+      features: [
+        // 'First and second row seating (first come first serve)',
+        'Free valet parking',
+        'VIP seating includes exclusive fig™ swag bag',
+        'Ultra-premium open bar and hors d’oeuvres',
+      ],
       mostPopular: true,
     },
     {
-      name: 'Runway Table (4 guests)',
+      name: 'Supporting Sponsor Table',
       id: 'runway-table',
       href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
       price: { monthly: '$2,500', annually: '$2,500' },
-      description: 'For Supporting Sponsors. Lorem ipsum dolor',
-      features: ['.', '..', '...', '....', '.....'],
+      description:
+        'Seats up to 4 guests at a high top table around the runway.',
+      features: [
+        'Sponsor’s company logo displayed on the step and repeat, digital media and in event program',
+        'Each guest receives an exclusive bag designed by DAME',
+        'Free valet parking',
+        'Ultra-premium open bar and hors d’oeuvres',
+        'Complimentary bottle of Prosecco',
+      ],
       mostPopular: false,
     },
     // {
@@ -67,15 +80,39 @@ export default function Tickets() {
   return (
     <section className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center text-center">
       {/* Pricing section */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-[37px]">Upcoming Events</h2>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-10 md:gap-y-16">
+        <div>
+          <h2 className="text-[37px] text-center">
+            Fig Fashion Show, Volume 2
+          </h2>
+          <p>An evening of fashion, art, and culture.</p>
         </div>
-        <p className="mx-auto mt-4 max-w-lg text-center">
-          An evening of fashion, art, and culture. Join us for the Fig Fashion
-          Show, Volume 2, on{' '}
-          <span className="text-rose">September 28, 2024</span>.
-        </p>
+        <div className="text-left grid md:grid-cols-2 max-w-4xl mx-auto">
+          <div className="flex flex-col gap-y-4">
+            <div>
+              <h4>Location</h4>
+              <p>
+                Seneca One Tower, 1 Seneca Drive, <br />
+                Buffalo, NY 14203
+              </p>
+            </div>
+            <div>
+              <h4>Date</h4>
+              <p>September 28, 2024</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-y-4">
+            <h4>Event Timeline</h4>
+            <ul className="list-inside list-disc flex flex-col gap-y-2">
+              <li>6 PM Doors Open</li>
+              <li>6-8 PM Cocktail Hour featuring Strolling Champagne</li>
+              <li>8-9 PM Look by Buffalo Fashion House </li>
+              <li>9-11 PM Fashion Show of 13 Cut and Sew Designers</li>
+              <li>Afterparty with DJ Cutler and DJ Lisa Lux at Seneca One</li>
+            </ul>
+          </div>
+        </div>
 
         <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-3 lg:max-w-4xl xl:mx-0 xl:max-w-none">
           {pricing.tiers.map((tier) => (
@@ -90,7 +127,7 @@ export default function Tickets() {
                 id={tier.id}
                 className={classNames(
                   tier.mostPopular ? 'text-rose' : 'text-gray-900',
-                  'text-lg font-semibold leading-8',
+                  'text-xl font-semibold leading-8',
                 )}
               >
                 {tier.name}
@@ -104,7 +141,7 @@ export default function Tickets() {
                 </span>
                 <span className="text-sm font-semibold leading-6 text-gray-600">
                   {/* {frequency.priceSuffix} */}
-                  per ticket
+                  {tier.id !== 'runway-table' && 'ea.'}
                 </span>
               </p>
               <a
@@ -117,14 +154,14 @@ export default function Tickets() {
                   'mt-6 block rounded-md px-3 py-2 text-center text-2xl vaneer uppercase leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose',
                 )}
               >
-                Buy tickets
+                Purchase
               </a>
               <ul
                 role="list"
                 className="mt-8 space-y-3 text-sm leading-6 text-gray-600"
               >
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
+                  <li key={feature} className="flex gap-x-3 text-left">
                     <CheckIcon
                       aria-hidden="true"
                       className="h-6 w-5 flex-none text-rose"
