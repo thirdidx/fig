@@ -124,14 +124,13 @@ export default function ContactForm() {
                   <SelectItem value="Internships">Internships</SelectItem>
                   <SelectItem value="Volunteers">Volunteers</SelectItem>
                   <SelectItem value="Designers">Designers</SelectItem>
-                  <SelectItem value="Designers">
+                  <SelectItem value="PressPasses">
                     Press Passes / Media
                   </SelectItem>
                 </SelectContent>
               </Select>
               {/* <FormDescription>
-                You can manage email addresses in your{' '}
-                <Link href="/examples/forms">email settings</Link>.
+                For general inquiries, you can leave this blank.
               </FormDescription> */}
               <FormMessage />
             </FormItem>
@@ -153,6 +152,10 @@ export default function ContactForm() {
         <Button type="submit" className="w-full btn !bg-rose">
           Submit
         </Button>
+        <div className="text-center my-10">
+          You can also email us at{' '}
+          <a href="mailto:figbuffalo@gmail.com">figbuffalo@gmail.com</a>
+        </div>
       </form>
     </Form>
   )
