@@ -15,7 +15,7 @@ const pricing = {
     {
       name: 'General Admission Ticket',
       id: 'ga',
-      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
+      href: 'https://buy.stripe.com/8wM7wu4bv8WgdfW8wx',
       price: { monthly: '$50', annually: '$50' },
       description: 'Standing room during show.',
       features: ['Cash bar'],
@@ -25,7 +25,7 @@ const pricing = {
     {
       name: 'VIP Ticket',
       id: 'vip',
-      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
+      href: 'https://buy.stripe.com/3csbMK5fza0k1xe6oq',
       price: { monthly: '$200', annually: '$200' },
       description: 'First and second row seating (first come first serve)',
       features: [
@@ -39,7 +39,7 @@ const pricing = {
     {
       name: 'Supporting Sponsor Table',
       id: 'runway-table',
-      href: 'https://buy.stripe.com/4gwbMK5fz5K4cbS9AA',
+      href: 'https://buy.stripe.com/fZe5om6jDa0k3Fm147',
       price: { monthly: '$2,500', annually: '$2,500' },
       description:
         'Seats up to 4 guests at a high top table around the runway.',
