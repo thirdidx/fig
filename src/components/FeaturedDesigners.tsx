@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 /* eslint-disable @next/next/no-img-element */
 export default function FeaturedDesigners() {
   return (
@@ -34,9 +36,12 @@ export default function FeaturedDesigners() {
           inspiration, vision, and drive that each designer brings to the FIG
           Runway.
         </p>
-        <button className="btn !border-none !bg-rose w-max uppercase text-[28px] p-2">
+        <Link
+          href="/designers"
+          className="btn !border-none !bg-rose w-max uppercase text-[28px] p-2"
+        >
           Meet The Designers
-        </button>
+        </Link>
       </div>
     </section>
   )
