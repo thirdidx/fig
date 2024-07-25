@@ -19,7 +19,7 @@ export function scrolltoHash(evt?: React.MouseEvent, element_id?: string) {
   const element = document.getElementById(element_id)
   element?.scrollIntoView({
     behavior: 'smooth',
-    block: 'center',
-    inline: 'nearest',
+    // block: 'center',
+    // inline: 'nearest',
   })
 }
