@@ -1,5 +1,4 @@
 import { type ClassValue, clsx } from 'clsx'
-import { useRouter } from 'next/router'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -14,21 +13,13 @@ export function formatDate(date: string) {
   })
 }
 
-export const scrolltoHash = function (element_id: string) {
+export function scrolltoHash(evt?: React.MouseEvent, element_id?: string) {
+  evt?.preventDefault()
+
   const element = document.getElementById(element_id)
   element?.scrollIntoView({
     behavior: 'smooth',
-    block: 'end',
+    block: 'center',
     inline: 'nearest',
-  })
-}
-
-export function scrollToTickets(evt?: React.MouseEvent) {
-  evt?.preventDefault()
-
-  const element = document.getElementById('tickets')
-  console.log('element', element)
-  element?.scrollIntoView({
-    behavior: 'smooth',
   })
 }

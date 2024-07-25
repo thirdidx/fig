@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { useMediaQuery } from '~/lib/use-media-query'
-import { scrollToTickets } from '~/lib/utils'
+import { scrolltoHash } from '~/lib/utils'
 
 export default function SplitImage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -49,19 +49,12 @@ export default function SplitImage() {
           <p>Space is limited, so make sure you get your tickets today!</p>
           <a
             href="#tickets"
-            onClick={scrollToTickets}
+            onClick={(e) => scrolltoHash(e, 'tickets')}
             className="btn !border-white !border-1 w-max uppercase text-[33px] p-2 cursor-pointer"
           >
             Show Tickets
           </a>
         </div>
-        {/* <Image
-          src="/fabric-bg.jpg"
-          quality={80}
-          fill
-          alt=""
-          style={{ zIndex: -1 }}
-        /> */}
       </div>
     </section>
   )

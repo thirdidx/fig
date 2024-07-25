@@ -1,4 +1,4 @@
-import { scrollToTickets } from '~/lib/utils'
+import { scrolltoHash } from '~/lib/utils'
 
 /* eslint-disable @next/next/no-img-element */
 export default function SplitVideo() {
@@ -21,7 +21,7 @@ export default function SplitVideo() {
           <a
             href="#tickets"
             className="btn !border-white !border-[1px] w-max uppercase text-[33px] p-0 cursor-pointer"
-            onClick={scrollToTickets}
+            onClick={(e) => scrolltoHash(e, 'tickets')}
           >
             Join Us
           </a>

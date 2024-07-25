@@ -5,8 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { cn, scrollToTickets } from '~/lib/utils'
-import { scrolltoHash } from '~/lib/utils'
+import { cn, scrolltoHash } from '~/lib/utils'
 
 const variants = {
   open: {
@@ -39,27 +38,27 @@ export default function MenuItem({
     router.push('/', '/', { scroll: false }).then(() => {
       setTimeout(() => {
         // toggleOpen(false)
-        scrollToTickets()
+        scrolltoHash(null, 'tickets')
       }, 400)
     })
   }
 
   const renderLinkText = () => {
-    if (href === '/contact') {
-      return <Link href={href}>{name}</Link>
+    if (!href || href === '') {
+      return name
     }
 
     if (href === '/#tickets') {
       if (router.pathname === '/')
         return (
-          <a href="#tickets" onClick={scrollToTickets}>
+          <a href="#tickets" onClick={(e) => scrolltoHash(e, 'tickets')}>
             {name}
           </a>
         )
       return <div onClick={() => handleBuyTicketsClick()}>{name}</div>
     }
 
-    return name
+    return <Link href={href}>{name}</Link>
   }
   return (
     <motion.li

@@ -13,13 +13,14 @@ const variants = {
 }
 
 const items = [
-  { name: 'THE FIG STORY', href: '/', isPrimary: true },
-  { name: 'DESIGNER SHOWCASE', href: '/', isPrimary: true },
-  { name: 'SPONSORS', href: '/', isPrimary: true },
-  { name: 'GET INVOLVED', href: '/', isPrimary: true },
+  { name: 'HOME', href: '/', isPrimary: true },
+  { name: 'THE FIG STORY', href: '/about', isPrimary: true },
+  { name: 'DESIGNER SHOWCASE', href: '/designers', isPrimary: true },
+  { name: 'SPONSORS', href: '/sponsors', isPrimary: true },
+  // { name: 'GET INVOLVED', href: '/', isPrimary: true },
   // { name: 'STORE', href: '/', isPrimary: true },
-  { name: 'Stitch Buffalo', href: '/', isPrimary: false },
-  { name: 'Contact us', href: '/contact', isPrimary: false },
+  // { name: 'Stitch Buffalo', href: '/', isPrimary: false },
+  { name: 'Contact us', href: '/contact', isPrimary: true },
   { name: 'Buy Tickets', href: '/#tickets', isPrimary: false, isButton: true },
 ]
 
