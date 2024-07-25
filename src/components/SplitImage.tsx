@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { useMediaQuery } from '~/lib/use-media-query'
+import { scrollToTickets } from '~/lib/utils'
 
 export default function SplitImage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -46,9 +47,13 @@ export default function SplitImage() {
             fashion pioneers as they redefine the boundaries of style.
           </p>
           <p>Space is limited, so make sure you get your tickets today!</p>
-          <button className="btn !border-white !border-1 w-max uppercase text-[33px] p-2">
+          <a
+            href="#tickets"
+            onClick={scrollToTickets}
+            className="btn !border-white !border-1 w-max uppercase text-[33px] p-2 cursor-pointer"
+          >
             Show Tickets
-          </button>
+          </a>
         </div>
         {/* <Image
           src="/fabric-bg.jpg"

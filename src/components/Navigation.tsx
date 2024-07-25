@@ -19,11 +19,11 @@ const items = [
   { name: 'GET INVOLVED', href: '/', isPrimary: true },
   // { name: 'STORE', href: '/', isPrimary: true },
   { name: 'Stitch Buffalo', href: '/', isPrimary: false },
-  { name: 'Contact us', href: '/', isPrimary: false },
-  { name: 'Buy Tickets', href: '/', isPrimary: false, isButton: true },
+  { name: 'Contact us', href: '/contact', isPrimary: false },
+  { name: 'Buy Tickets', href: '/#tickets', isPrimary: false, isButton: true },
 ]
 
-export default function Navigation() {
+export default function Navigation({ toggleOpen }: { toggleOpen: () => void }) {
   return (
     <motion.ul
       variants={variants}
@@ -34,8 +34,10 @@ export default function Navigation() {
           key={i}
           i={i}
           name={name}
+          href={href}
           isPrimary={isPrimary}
           isButton={isButton}
+          toggleOpen={toggleOpen}
         />
       ))}
     </motion.ul>

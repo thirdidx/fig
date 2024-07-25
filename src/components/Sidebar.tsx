@@ -64,7 +64,7 @@ export default function Sidebar() {
           variants={drawer}
         >
           <div className="relative w-full h-screen max-w-[900px]">
-            <Navigation />
+            <Navigation toggleOpen={toggleOpen} />
           </div>
         </motion.div>
 

@@ -1,3 +1,5 @@
+import { scrollToTickets } from '~/lib/utils'
+
 /* eslint-disable @next/next/no-img-element */
 export default function SplitVideo() {
   return (
@@ -16,9 +18,13 @@ export default function SplitVideo() {
             you&rsquo;re a seasoned professional or an emerging talent,
             there&rsquo;s a place for you at the FIG Fashion Show.
           </p>
-          <button className="btn !border-white !border-[1px] w-max uppercase text-[33px] p-0">
+          <a
+            href="#tickets"
+            className="btn !border-white !border-[1px] w-max uppercase text-[33px] p-0 cursor-pointer"
+            onClick={scrollToTickets}
+          >
             Join Us
-          </button>
+          </a>
         </div>
       </div>
     </section>

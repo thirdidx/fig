@@ -1,7 +1,12 @@
+'use client'
+
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { cn } from '~/lib/utils'
+import { cn, scrollToTickets } from '~/lib/utils'
+import { scrolltoHash } from '~/lib/utils'
 
 const variants = {
   open: {
@@ -20,9 +25,45 @@ const variants = {
   },
 }
 
-export default function MenuItem({ i, name, isPrimary, isButton }) {
+export default function MenuItem({
+  i,
+  name,
+  href,
+  isPrimary,
+  isButton,
+  toggleOpen,
+}) {
+  const router = useRouter()
+
+  const handleBuyTicketsClick = () => {
+    router.push('/', '/', { scroll: false }).then(() => {
+      setTimeout(() => {
+        // toggleOpen(false)
+        scrollToTickets()
+      }, 400)
+    })
+  }
+
+  const renderLinkText = () => {
+    if (href === '/contact') {
+      return <Link href={href}>{name}</Link>
+    }
+
+    if (href === '/#tickets') {
+      if (router.pathname === '/')
+        return (
+          <a href="#tickets" onClick={scrollToTickets}>
+            {name}
+          </a>
+        )
+      return <div onClick={() => handleBuyTicketsClick()}>{name}</div>
+    }
+
+    return name
+  }
   return (
     <motion.li
+      onClick={() => toggleOpen(false)}
       className={cn(
         'text-white text-[18px] md:text-[26px] leading-none vaneer cursor-pointer underline mb-4',
         {
@@ -35,7 +76,7 @@ export default function MenuItem({ i, name, isPrimary, isButton }) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      {name}
+      {renderLinkText()}
     </motion.li>
   )
 }

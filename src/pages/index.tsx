@@ -51,14 +51,6 @@ export default function IndexPage(
         <Tickets />
         <FAQ />
       </div>
-      <SiteFooter />
-      {/* <section>
-        {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
-        ) : (
-          <Welcome />
-        )}
-      </section> */}
     </Container>
   )
 }

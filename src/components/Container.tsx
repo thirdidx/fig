@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
-import { Sidebar } from '~/components'
+import { Sidebar, SiteFooter } from '~/components'
+
+import { Toaster } from './ui/toaster'
 
 export default function Container({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +20,8 @@ export default function Container({ children }: { children: React.ReactNode }) {
       </header>
       <main>{children}</main>
       <Sidebar />
-      <footer className="footer"></footer>
+      <SiteFooter />
+      <Toaster />
     </div>
   )
 }

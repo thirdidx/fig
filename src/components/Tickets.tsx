@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { Radio, RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
+import { useSmoothScrollTo } from '~/lib/use-smooth-scroll'
 
 const pricing = {
   frequencies: [
@@ -76,9 +77,14 @@ function classNames(...classes) {
 
 export default function Tickets() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
+  const ticketsRef = useRef(null)
 
   return (
-    <section className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center text-center">
+    <section
+      id="tickets"
+      ref={ticketsRef}
+      className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center text-center"
+    >
       {/* Pricing section */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-10 md:gap-y-16">
         <div>
@@ -154,7 +160,7 @@ export default function Tickets() {
                   'mt-6 block rounded-md px-3 py-2 text-center text-2xl vaneer uppercase leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose',
                 )}
               >
-                Purchase
+                Buy Now
               </a>
               <ul
                 role="list"
