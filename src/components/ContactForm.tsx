@@ -28,7 +28,7 @@ import {
 import { toast } from './ui/use-toast'
 
 const formSchema = z.object({
-  fullName: z.string().min(2, {
+  name: z.string().min(2, {
     message: 'Name must be at least 2 characters.',
   }),
   email: z.string().email({
@@ -47,7 +47,7 @@ export default function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: '',
+      name: '',
       email: '',
       subject: '',
       message: '',
@@ -55,17 +55,22 @@ export default function ContactForm() {
   })
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
+
+    const queryParams = { ...values }
+    const queryString = new URLSearchParams(queryParams).toString()
+    await fetch(`/api/send-email?${queryString}`)
+
     toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
+      title: 'You inquiry has been submitted. Someone will be in touch soon.',
+      // description: (
+      //   <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+      //     <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+      //   </pre>
+      // ),
     })
   }
 
@@ -77,7 +82,7 @@ export default function ContactForm() {
       >
         <FormField
           control={form.control}
-          name="fullName"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
@@ -118,13 +123,13 @@ export default function ContactForm() {
                 </FormControl>
                 <SelectContent>
                   <SelectItem value="Sponsorships">Sponsorships</SelectItem>
-                  <SelectItem value="Hair&Makeup">
+                  <SelectItem value="Hair & Makeup Artists">
                     Hair & Makeup Artists
                   </SelectItem>
                   <SelectItem value="Internships">Internships</SelectItem>
                   <SelectItem value="Volunteers">Volunteers</SelectItem>
                   <SelectItem value="Designers">Designers</SelectItem>
-                  <SelectItem value="PressPasses">
+                  <SelectItem value="Press Passes / Media">
                     Press Passes / Media
                   </SelectItem>
                 </SelectContent>
