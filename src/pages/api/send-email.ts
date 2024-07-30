@@ -15,7 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const message = typeof query.message === 'string' ? query.message : undefined
 
   const sendFrom = `${name} <website@figbuffalo.com>`
-  const sendTo = ['mikecicc@gmail.com']
+  const sendTo = ['figbuffalo@gmail.com']
 
   try {
     const { data, error } = await resend.emails.send({
