@@ -90,7 +90,7 @@ export const tier2 = [
   {
     name: 'Hodgson Russ',
     href: '#',
-    image: '/sponsors/friends-of-fig/hudgson-russ.png',
+    image: '/sponsors/friends-of-fig/hodgson-russ.png',
   },
   {
     name: 'In Room Plus',
