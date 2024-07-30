@@ -39,7 +39,6 @@ h6,
   font-family: 'Veneer', 'Arial', sans-serif;
 }
 
-/* Layout */
 .wrap {
   @apply w-screen min-h-screen overflow-x-hidden flex flex-col;
 }
