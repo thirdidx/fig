@@ -22,19 +22,49 @@ const sponsors = [
     image: '/logo-fourthidea.svg',
   },
   {
-    name: 'Delaware North',
+    name: '43 North',
     href: '#',
-    image: '/logo-delawarenorth.jpg',
+    image: '/sponsors/high-level/43north-light.jpg',
   },
   {
-    name: 'Richs',
+    name: 'Buffalo Toronto Public Media',
     href: '#',
-    image: '/logo-riches.jpg',
+    image: '/sponsors/high-level/buffalo-toronto-public-media.png',
   },
   {
-    name: 'IDK',
+    name: 'Ciminelli Real Esate',
     href: '#',
-    image: '/logo-idk.jpeg',
+    image: '/sponsors/high-level/ciminelli-real-esate.jpg',
+  },
+  {
+    name: 'Dame',
+    href: '#',
+    image: '/sponsors/high-level/dame.png',
+  },
+  {
+    name: 'Douglas Buffalo',
+    href: '#',
+    image: '/sponsors/high-level/douglas-buffalo-black.png',
+  },
+  {
+    name: 'Great Lakes',
+    href: '#',
+    image: '/sponsors/high-level/great-lakes.png',
+  },
+  {
+    name: 'NFTA Metro',
+    href: '#',
+    image: '/sponsors/high-level/nfta-metro.svg',
+  },
+  {
+    name: 'Seneca One',
+    href: '#',
+    image: '/sponsors/high-level/seneca-one-black.png',
+  },
+  {
+    name: 'Valval',
+    href: '#',
+    image: '/sponsors/high-level/valval.png',
   },
 ]
 

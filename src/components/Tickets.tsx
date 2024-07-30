@@ -4,7 +4,7 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { useRef, useState } from 'react'
 
-import { useSmoothScrollTo } from '~/lib/use-smooth-scroll'
+import { Timeline } from '~/components'
 
 const pricing = {
   frequencies: [
@@ -86,41 +86,20 @@ export default function Tickets() {
       className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center text-center"
     >
       {/* Pricing section */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-10 md:gap-y-16">
-        <div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-4 text-center">
+        <div className="flex flex-col gap-y-4">
           <h2 className="text-[37px] text-center">
             Fig Fashion Show, Volume 2
           </h2>
-          <p>An evening of fashion, art, and culture.</p>
-        </div>
-        <div className="text-left grid md:grid-cols-2 max-w-4xl mx-auto">
-          <div className="flex flex-col gap-y-4">
-            <div>
-              <h4>Location</h4>
-              <p>
-                Seneca One Tower, 1 Seneca Drive, <br />
-                Buffalo, NY 14203
-              </p>
-            </div>
-            <div>
-              <h4>Date</h4>
-              <p>September 28, 2024</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-y-4">
-            <h4>Event Timeline</h4>
-            <ul className="list-inside list-disc flex flex-col gap-y-2">
-              <li>6 PM Doors Open</li>
-              <li>6-8 PM Cocktail Hour featuring Strolling Champagne</li>
-              <li>8-9 PM Look by Buffalo Fashion House </li>
-              <li>9-11 PM Fashion Show of 13 Cut and Sew Designers</li>
-              <li>Afterparty with DJ Cutler and DJ Lisa Lux at Seneca One</li>
-            </ul>
-          </div>
+          <p className="max-w-2xl mx-auto">
+            An evening of fashion, art, and culture. <br />
+            Seneca One Tower, 1 Seneca Drive Buffalo, NY 14203 <br />
+            September 28, 2024
+          </p>
+          <Timeline />
         </div>
 
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-3 lg:max-w-4xl xl:mx-0 xl:max-w-none">
+        <div className="mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-3 lg:max-w-4xl xl:mx-0 xl:max-w-none">
           {pricing.tiers.map((tier) => (
             <div
               key={tier.id}
@@ -180,59 +159,6 @@ export default function Tickets() {
           ))}
         </div>
       </div>
-
-      {/* Logo cloud */}
-      {/* <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
-        <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <img
-            alt="Transistor"
-            src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          />
-          <img
-            alt="Reform"
-            src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          />
-          <img
-            alt="Tuple"
-            src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          />
-          <img
-            alt="SavvyCal"
-            src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-          />
-          <img
-            alt="Statamic"
-            src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-            width={158}
-            height={48}
-            className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-          />
-        </div>
-        <div className="mt-16 flex justify-center">
-          <p className="relative rounded-full bg-gray-50 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5">
-            <span className="hidden md:inline">
-              Transistor saves up to $40,000 per year, per employee by working
-              with us.
-            </span>
-            <a href="#" className="font-semibold text-indigo-600">
-              <span aria-hidden="true" className="absolute inset-0" /> See our
-              case study <span aria-hidden="true">&rarr;</span>
-            </a>
-          </p>
-        </div>
-      </div> */}
     </section>
   )
 }

@@ -46,7 +46,7 @@ const faqs = [
   {
     question: 'Are press passes available to photographers and videographers?',
     answer:
-      'Yes, press passes area limited. Please inquire through the website.',
+      'Yes, press passes are limited. Please inquire through the website.',
   },
   {
     question: 'Is the event handicap accessible?',
@@ -56,7 +56,7 @@ const faqs = [
   {
     question: 'Is there valet parking?',
     answer:
-      'Yes, valet parking is available for Sponsors and VIPs, only. There is street parking and numerous parking lots surroundings Seneca One available.',
+      'Yes, valet parking is available for Sponsors and VIPs, only. There is street parking and numerous parking lots surrounding Seneca One available.',
   },
   {
     question: 'Is there food available at the event?',
