@@ -78,11 +78,6 @@ export const tier2 = [
     image: '/sponsors/friends-of-fig/buffalo-rising.png',
   },
   {
-    name: 'Fawn and Fox Salon.png',
-    href: '#',
-    image: '/sponsors/friends-of-fig/fawn-and-fox-salon.png',
-  },
-  {
     name: 'Fawn and Fox Salon',
     href: '#',
     image: '/sponsors/friends-of-fig/fawn-and-fox-salon.png',

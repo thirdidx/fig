@@ -3,7 +3,6 @@ import Link from 'next/link'
 import * as React from 'react'
 
 import { Sponsor } from '~/components'
-import { Card, CardContent } from '~/components/ui/card'
 import {
   Carousel,
   CarouselContent,
@@ -25,8 +24,7 @@ function SponsorsCarousel() {
         {tier1.map((s, idx) => (
           <CarouselItem key={idx} className="basis-1/3 lg:basis-1/5">
             <div className="flex items-center justify-center p-4 select-none">
-              <Sponsor sponsor={s} />
-              {/* <img src={image} alt={name} className="object-contain h-20" /> */}
+              <Sponsor sponsor={s} side="right" />
             </div>
           </CarouselItem>
         ))}

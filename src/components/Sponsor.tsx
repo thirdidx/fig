@@ -6,7 +6,7 @@ import {
   TooltipTrigger,
 } from '~/components/ui/tooltip'
 
-export default function Sponsor({ sponsor }) {
+export default function Sponsor({ sponsor, side }) {
   return (
     <TooltipProvider>
       <Tooltip>
@@ -17,7 +17,10 @@ export default function Sponsor({ sponsor }) {
             className="object-contain h-20"
           />
         </TooltipTrigger>
-        <TooltipContent side="right" className="bg-black text-white border-black">
+        <TooltipContent
+          side={side}
+          className="bg-black text-white border-black"
+        >
           <h5>{sponsor.sponsorship || sponsor.name}</h5>
         </TooltipContent>
       </Tooltip>
