@@ -6,7 +6,6 @@ import {
   FeaturedDesigners,
   Hero,
   Intro,
-  SiteFooter,
   SplitImage,
   SplitVideo,
   Sponsorship,
