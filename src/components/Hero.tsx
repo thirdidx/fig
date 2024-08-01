@@ -1,6 +1,7 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
+import { useRef } from 'react'
 
 import { useMediaQuery } from '~/lib/use-media-query'
 
@@ -8,10 +9,25 @@ export default function Hero() {
   const isDesktopScreen = useMediaQuery('(min-width: 768px)')
   // const isXLScreen = useMediaQuery('(min-width: 1280px)')
 
+  const heroRef = useRef(null)
+  // const [isLoaded, setIsLoaded] = useState(false)
+
+  const handleScroll = (ref) => {
+    window.scrollTo({
+      top: heroRef?.current?.clientHeight,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
+
   return (
-    <div className="relative -mt-1 -mb-1 z-[1] w-full">
+    <div
+      ref={heroRef}
+      onClick={handleScroll}
+      className="relative -mt-1 -mb-1 z-[1] w-full cursor-s-resize"
+    >
       {isDesktopScreen ? (
-        <div className="w-full h-[calc(100vh_-_20vh)] relative aspect-video">
+        <div className="w-full h-[calc(100vh_-_266px)] xl:h-screen relative aspect-video">
           <video
             autoPlay
             loop
