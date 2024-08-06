@@ -10,9 +10,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel'
-import { tier1 } from '~/data/sponsors'
+import { tier1, tier3, tier4 } from '~/data/sponsors'
 
 function SponsorsCarousel() {
+  const sponsors = [...tier1, ...tier3, ...tier4]
   return (
     <Carousel
       opts={{
@@ -21,10 +22,10 @@ function SponsorsCarousel() {
       className="w-full max-w-[1020px] mx-auto px-4 md:px-0"
     >
       <CarouselContent className="overflow-y-visible">
-        {tier1.map((s, idx) => (
+        {sponsors.map((s, idx) => (
           <CarouselItem key={idx} className="basis-1/3 lg:basis-1/5">
             <div className="flex items-center justify-center p-4 select-none">
-              <Sponsor sponsor={s} side="right" />
+              <Sponsor sponsor={s} side={idx % 6 === 0 ? 'right' : 'left'} />
             </div>
           </CarouselItem>
         ))}

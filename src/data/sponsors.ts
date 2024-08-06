@@ -5,17 +5,23 @@ export const tier1 = [
     href: '#',
     image: '/logo-evans.svg',
   },
+]
+
+export const tier2 = [
+  {
+    name: 'TBD',
+    sponsorship: 'Runway Sponsor',
+    href: '#',
+    image: '',
+  },
+]
+
+export const tier3 = [
   {
     name: 'FourthIdea',
     sponsorship: 'Brand Agency Sponsor',
     href: '#',
     image: '/logo-fourthidea.svg',
-  },
-  {
-    name: '43 North',
-    sponsorship: 'Look Book Sponsor',
-    href: '#',
-    image: '/sponsors/high-level/43north-light.jpg',
   },
   {
     name: 'Buffalo Toronto Public Media',
@@ -24,16 +30,10 @@ export const tier1 = [
     image: '/sponsors/high-level/buffalo-toronto-public-media.png',
   },
   {
-    name: 'Ciminelli Real Esate',
-    sponsorship: 'Fig VIP Experience Sponsors',
+    name: 'NFTA Metro',
+    sponsorship: 'Transportation Sponsor',
     href: '#',
-    image: '/sponsors/high-level/ciminelli-real-esate.jpg',
-  },
-  {
-    name: 'Dame',
-    sponsorship: 'Fig Swag Bag Sponsor',
-    href: '#',
-    image: '/sponsors/high-level/dame.png',
+    image: '/sponsors/high-level/nfta-metro.svg',
   },
   {
     name: 'Douglas Development',
@@ -41,32 +41,52 @@ export const tier1 = [
     href: '#',
     image: '/sponsors/high-level/douglas-buffalo-black.png',
   },
+  // {
+  //   name: 'TBD',
+  //   sponsorship: 'Look Book Sponsor',
+  //   href: '#',
+  //   image: '',
+  // },
   {
-    name: 'Great Lakes Imaging',
-    sponsorship: 'Fig VIP Experience Sponsors',
+    name: 'Dame',
+    sponsorship: 'Fig Swag Bag Sponsor',
     href: '#',
-    image: '/sponsors/high-level/great-lakes.png',
+    image: '/sponsors/high-level/dame.png',
   },
   {
-    name: 'NFTA Metro',
-    sponsorship: 'Transportation Sponsor',
-    href: '#',
-    image: '/sponsors/high-level/nfta-metro.svg',
-  },
-  {
-    name: 'Seneca One',
-    href: '#',
-    image: '/sponsors/high-level/seneca-one-black.png',
-  },
-  {
-    name: 'Valval',
+    name: 'ValVal',
     sponsorship: 'Fig Strolling Champagne Dress Sponsor',
     href: '#',
     image: '/sponsors/high-level/valval.png',
   },
 ]
 
-export const tier2 = [
+export const tier4 = [
+  {
+    name: 'Ciminelli Real Esate',
+    sponsorship: 'Fig VIP Experience Sponsors',
+    href: '#',
+    image: '/sponsors/high-level/ciminelli-real-esate.jpg',
+  },
+  {
+    name: 'Great Lakes Imaging',
+    sponsorship: 'Fig VIP Experience Sponsors',
+    href: '#',
+    image: '/sponsors/high-level/great-lakes.png',
+  },
+]
+
+export const tier5 = [
+  {
+    name: '43 North',
+    href: '#',
+    image: '/sponsors/high-level/43north-light.jpg',
+  },
+  {
+    name: 'Seneca One',
+    href: '#',
+    image: '/sponsors/high-level/seneca-one-black.png',
+  },
   {
     name: 'Antique World',
     href: '#',
