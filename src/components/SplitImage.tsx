@@ -1,34 +1,27 @@
-import Image from 'next/image'
+'use client'
 
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+
+import { PhotoCarousel } from '~/components'
 import { useMediaQuery } from '~/lib/use-media-query'
 import { scrolltoHash } from '~/lib/utils'
 
+const images = [
+  '/hp-carousel-1.jpg',
+  '/hp-carousel-2.jpg',
+  '/hp-carousel-3.jpg',
+  '/hp-carousel-4.jpg',
+  '/hp-carousel-5.jpg',
+  '/hp-carousel-6.jpg',
+  '/hp-carousel-7.jpg',
+  '/hp-carousel-8.jpg',
+]
+
 export default function SplitImage() {
-  const isDesktop = useMediaQuery('(min-width: 768px)')
   return (
     <section className="md:grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:-mt-1 min-h-[495px] -mt-px">
-      {isDesktop ? (
-        <div className="relative">
-          <Image
-            src="/runway.jpg"
-            quality={80}
-            fill
-            style={{ objectFit: 'cover' }}
-            alt=""
-          />
-        </div>
-      ) : (
-        <Image
-          src="/runway.jpg"
-          quality={80}
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%', height: 'auto' }}
-          alt=""
-        />
-      )}
-
+      <PhotoCarousel images={images} />
       <div
         className="relative overflow-hidden min-h-[495px]"
         style={{
