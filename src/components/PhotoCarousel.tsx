@@ -9,9 +9,7 @@ import {
 } from '~/components/ui/carousel'
 
 export default function PhotoCarousel({ images }: { images: string[] }) {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true }),
-  )
+  const plugin = React.useRef(Autoplay({ delay: 3000 }))
 
   return (
     <Carousel
