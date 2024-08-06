@@ -22,7 +22,7 @@ export default function VertVideo() {
           alt=""
         />
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[665px]">
+      <DialogContent className="max-w-calc(100vw_-_4rem) overflow-hidden sm:max-w-[665px]">
         <DialogHeader>
           <DialogTitle>&nbsp;</DialogTitle>
           {/* <DialogDescription></DialogDescription> */}
@@ -33,7 +33,7 @@ export default function VertVideo() {
             autoPlay
             // loop
             // muted
-            className="w-full h-full object-cover outline-none"
+            className="max-w-[calc(100vw_-_3rem)] sm:max-w-full w-full h-full md:object-cover outline-none"
           >
             <source src="/fig-launch-2024.mp4" type="video/mp4" />
             Your browser does not support the video tag.

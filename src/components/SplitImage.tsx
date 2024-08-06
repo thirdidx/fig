@@ -29,7 +29,7 @@ export default function SplitImage() {
           backgroundSize: 'cover',
         }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-white flex flex-col gap-y-6 w-full max-w-[500px] p-4">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-white flex flex-col items-center md:items-start gap-y-6 w-full max-w-[500px] p-4">
           <h2 className="text-2xl md:text-[37px]">
             Channel Your Inner-Fashionista
           </h2>

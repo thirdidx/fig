@@ -30,7 +30,7 @@ export default function FeaturedDesigners() {
         </div>
       </div>
 
-      <div className="p-4 md:p-8 flex flex-col gap-y-6">
+      <div className="p-4 md:p-8 flex flex-col items-center md:items-start gap-y-6">
         <h2 className="text-2xl md:text-[37px]">Behind The Designs</h2>
         <p>
           Fashion is personal. Here’s your chance to get to know the
