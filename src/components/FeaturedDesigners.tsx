@@ -14,18 +14,19 @@ export default function FeaturedDesigners() {
         </div>
         <div className="p-4 md:px-8 md:py-6 w-[286px] flex items-center justify-center">
           <img
-            src="/designer-headshot.png"
+            src="/featured-designer-austin.jpg"
             alt=""
-            className="w-[222px] h-auto"
+            className="w-full h-auto rounded-full"
           />
         </div>
         <div className="flex flex-col gap-4 justify-center max-w-[170px] pr-4">
           <h2 className="text-white text-2xl md:text-[37px] leading-none">
-            Designer Name Here
+            Austin Guyett
           </h2>
-          <button className="btn !border-white !border-[1px] w-max uppercase text-[21px] py-px px-2">
+          <p className="text-white">BAG (By A Guy)</p>
+          {/* <button className="btn !border-white !border-[1px] w-max uppercase text-[21px] py-px px-2">
             See More
-          </button>
+          </button> */}
         </div>
       </div>
 
