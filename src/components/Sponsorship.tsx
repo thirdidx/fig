@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Autoplay from 'embla-carousel-autoplay'
 import Link from 'next/link'
 import * as React from 'react'
 
@@ -13,12 +14,24 @@ import {
 import { tier1, tier3, tier4 } from '~/data/sponsors'
 
 function SponsorsCarousel() {
+  const plugin = React.useRef(
+    Autoplay({
+      delay: 3000,
+      stopOnFocusIn: false,
+      stopOnInteraction: false,
+      playOnInit: false,
+    }),
+  )
+
   const sponsors = [...tier1, ...tier3, ...tier4]
   return (
     <Carousel
       opts={{
         align: 'start',
+        loop: true,
       }}
+      plugins={[plugin.current]}
+      onMouseEnter={(event) => plugin.current.play()}
       className="w-full max-w-[1020px] mx-auto px-4 md:px-0"
     >
       <CarouselContent className="overflow-y-visible">

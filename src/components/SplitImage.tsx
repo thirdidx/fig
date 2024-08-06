@@ -1,10 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-
 import { PhotoCarousel } from '~/components'
-import { useMediaQuery } from '~/lib/use-media-query'
 import { scrolltoHash } from '~/lib/utils'
 
 const images = [
