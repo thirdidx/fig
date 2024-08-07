@@ -11,11 +11,21 @@ export default function Sponsor({ sponsor, side }) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <img
-            src={sponsor.image}
-            alt={sponsor.name}
-            className="object-contain h-20"
-          />
+          {sponsor?.href && sponsor?.href !== '#' ? (
+            <a href={sponsor?.href} target="_blank">
+              <img
+                src={sponsor.image}
+                alt={sponsor.name}
+                className="object-contain h-20"
+              />
+            </a>
+          ) : (
+            <img
+              src={sponsor.image}
+              alt={sponsor.name}
+              className="object-contain h-20"
+            />
+          )}
         </TooltipTrigger>
         <TooltipContent
           side={side}

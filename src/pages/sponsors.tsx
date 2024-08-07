@@ -8,7 +8,7 @@ export default function SponsorsPage() {
         <div className="mx-auto max-w-[1020px] w-full p-10 flex flex-col gap-y-4 justify-center items-center md:items-start md:text-center pb-20">
           <h1 className="text-4xl text-center mb-8 self-center">Sponsors</h1>
           <div className="flex flex-col gap-y-8">
-            <div className="flex flex-col gap-4 items-center">
+            <div className="flex flex-col gap-4 md:gap-8 items-center">
               <div className="flex items-center justify-center p-4 select-none">
                 <Sponsor sponsor={tier1[0]} side="top" />
               </div>
@@ -27,7 +27,7 @@ export default function SponsorsPage() {
               </div>
             </div> */}
             <div className="flex flex-col gap-4">
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
                 {tier3.map((s, idx) => (
                   <div
                     key={idx}
@@ -40,7 +40,7 @@ export default function SponsorsPage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
                 {tier4.map((s, idx) => (
                   <div
                     key={idx}
