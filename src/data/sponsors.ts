@@ -42,10 +42,10 @@ export const tier3 = [
     image: '/sponsors/feat/douglas-buffalo-black.png',
   },
   {
-    name: '43North',
+    name: 'Richard W. Rupp',
     sponsorship: 'Look Book Sponsor',
-    href: 'https://43north.org/',
-    image: '/sponsors/feat/43north-light.jpg',
+    href: '#',
+    image: '/sponsors/feat/richard-w-rupp.png',
   },
   {
     name: 'Dame',
@@ -80,6 +80,12 @@ export const tier4 = [
     href: 'https://www.glmi.com/',
     image: '/sponsors/feat/great-lakes.png',
   },
+  {
+    name: 'Rigidized Metals',
+    sponsorship: 'Fig VIP Experience Sponsors',
+    href: 'https://www.rigidized.com/',
+    image: '/sponsors/feat/rigidized.png',
+  },
 ]
 
 export const tier5 = [
@@ -102,22 +108,16 @@ export const tier5 = [
     image: '/sponsors/friends-of-fig/buffalo-rising2.png',
   },
   {
-    name: 'Fawn and Fox Salon',
-    sponsorship: 'Friends of Fig',
-    href: 'https://www.fawnandfoxsalon.com/',
-    image: '/sponsors/friends-of-fig/fawn-and-fox-salon.png',
-  },
-  {
     name: 'Fiddlehead',
     sponsorship: 'Friends of Fig',
     href: 'https://fiddleheadbrewing.com/',
     image: '/sponsors/friends-of-fig/fiddlehead.jpg',
   },
   {
-    name: 'Hodgson Russ',
+    name: 'Paul Mariani beauty',
     sponsorship: 'Friends of Fig',
-    href: 'https://www.hodgsonruss.com/',
-    image: '/sponsors/friends-of-fig/hodgson-russ.png',
+    href: 'https://www.paulmarianibeauty.com/',
+    image: '/sponsors/friends-of-fig/paul-mariani.webp',
   },
   {
     name: 'In-Room Plus',
@@ -130,18 +130,6 @@ export const tier5 = [
     sponsorship: 'Friends of Fig',
     href: 'https://www.peterrouffdmd.com/',
     image: '/sponsors/friends-of-fig/dr-peter-rouff.png',
-  },
-  // {
-  //   name: 'Red Bull',
-  //   sponsorship: 'Friends of Fig',
-  //   href: '#',
-  //   image: '/sponsors/friends-of-fig/red-bull.png',
-  // },
-  {
-    name: 'Richard W. Rupp',
-    sponsorship: 'Friends of Fig',
-    href: '#',
-    image: '/sponsors/friends-of-fig/richard-w-rupp.png',
   },
   {
     name: 'Spear',
@@ -174,9 +162,9 @@ export const tier5 = [
     image: '/sponsors/friends-of-fig/three-cord.png',
   },
   {
-    name: 'Trattoria',
+    name: 'Aroma on Bryant',
     sponsorship: 'Friends of Fig',
-    href: '#',
+    href: 'https://www.aromabuffalo.com/',
     image: '/sponsors/friends-of-fig/trattoria.jpg',
   },
   {
@@ -203,17 +191,11 @@ export const tier5 = [
     href: 'https://underthehoodtalk.com/',
     image: '/sponsors/friends-of-fig/underthehoodtalk.png',
   },
-  // {
-  //   name: 'Aroma on Bryant',
-  //   sponsorship: 'Friends of Fig',
-  //   href: 'https://www.aromabuffalo.com/',
-  //   image: '/sponsors/friends-of-fig/.jpg',
-  // },
   {
     name: 'Graylynn',
     sponsorship: 'Friends of Fig',
     href: 'https://www.graylynnginbar.com/',
-    image: '/sponsors/friends-of-fig/graylynn.jpeg',
+    image: '/sponsors/friends-of-fig/graylynn.png',
   },
   {
     name: 'BFLO Hydration',
@@ -228,15 +210,27 @@ export const tier5 = [
     image: '/sponsors/friends-of-fig/susan-ciminelli.jpg',
   },
   {
-    name: 'Paul Mariani beauty',
+    name: 'Hodgson Russ',
     sponsorship: 'Friends of Fig',
-    href: 'https://www.paulmarianibeauty.com/',
-    image: '/sponsors/friends-of-fig/paul-mariani.webp',
+    href: 'https://www.hodgsonruss.com/',
+    image: '/sponsors/friends-of-fig/hodgson-russ.png',
   },
   {
     name: 'Passionate Living',
     sponsorship: 'Friends of Fig',
     href: 'https://passionateliving.com/',
     image: '/sponsors/friends-of-fig/passionate-living.png',
+  },
+  {
+    name: 'Half & Half',
+    sponsorship: 'Friends of Fig',
+    href: 'https://www.halfandhalfboutique.com/',
+    image: '/sponsors/friends-of-fig/half-and-half.jpg',
+  },
+  {
+    name: 'Stitch Buffalo',
+    sponsorship: 'Benefactor',
+    href: 'https://www.stitchbuffalo.org/',
+    image: '/sponsors/friends-of-fig/stitch.png',
   },
 ]

@@ -40,12 +40,12 @@ export const designers = [
     bio: '<p>Dame resides in his hometown of Buffalo, NY with his partner, Dayna, and their two German Shepherds, Ahsoka and Tano. He began his crafting career almost a decade ago designing and sewing hoodies, bomber jackets, and outerwear. His hand-sewn garments have reached clients all over the nation and includes custom pieces for players of the NFL, NBA, and social media sensations. For a lot of people, the 2020 quarantine gave way to new hobbies. For Dame, this was leather works. Dame spent the first half of quarantine helping out with the global face mask shortage by making adjustable cloth coverings and donating proceeds to pandemic relief projects. The second half was spent getting busy with the ins and outs of making leather goods. After plenty of research, trial, and error, Dame successfully produced his leather wallet collection. Soon after, he received his first custom commission duffle request and has been expanding his product list since. Dame enjoys creating unique, handcrafted products that will be cherished for a lifetime. He is just as excited as the client when designing a custom piece! Dame aims to provide a memorable experience from the start of order to receiving the item in hand.</p>',
   },
   {
-    name: 'Fardja Brabham',
-    brand: 'FARDJA B',
-    image: '/headshots/fardja-brabham.jpg',
-    email: 'fardjab@icloud.com',
-    instagram: 'fardja_b',
-    bio: '<p>Welcome to Fardja B, the essence of personalized luxury, innovatively crafted for the modern woman. The eponymous brand specializes in creating bespoke coats that embody slow fashion, emphasizing customization and innovative silhouettes.</p><p>At Fardja B, we specialize in made-to-measure coats, each piece a testament to meticulous craftsmanship and timeless style. We embrace the principles of slow fashion, ensuring each garment is not only exquisite but also ethically produced. Our commitment to sustainability is reflected in every stitch and seam, emphasizing quality over quantity. Our collections are inspired by the dynamic lifestyles of contemporary women, offering versatility and elegance in equal measure. From bold, sculptural silhouettes to classic designs reimagined, Fardja B coats are tailored to fit not just your measurements, but your lifestyle and values as well.</p><p>Fardja B stands out with its commitment to customization. Each coat we create is a collaborative journey with our clients, ensuring that every detail reflects their individuality and style preferences. In a world of fast fashion, we offer a return to the bespoke, the personal, and the enduring.</p><p>Join us in redefining luxury with coats that do more than just adorn; they empower. Embrace the art of slow fashion with Fardja B, where the coat is the fit.</p>',
+    name: 'Novi Paluch',
+    brand: 'Sasmita Batik',
+    image: '/headshots/novi-paluch.jpg',
+    email: 'sasmitabatik@gmail.com',
+    instagram: 'sasmitabatik',
+    bio: '<p></p>',
   },
   {
     name: 'Kylie Priscilla',
@@ -104,7 +104,7 @@ export const designers = [
     bio: '<p>My name is Robby Motz.</p><p>Fashion has always dominated my life. Growing up about 30 minutes from the city of Buffalo, in a small country town called Alden, I was always looking for ways to stand out from the typical crowd. One of the best discoveries I made was when my closest friend introduced me to skateboarding. The best part about skating to me was that it wasn’t only about what tricks you could do or how well you could ride a board, instead it was about the real sense of community within the skate world. Being a part of this community inspired me to start the company you see today as Plain Only Clothing.</p><p>Mid 2020 Plain Only had officially started as a skateboarding brand. With a colorful embroidered PLAIN logo on the front of different colored blank t-shirts. As time went on I had come to the realization that I had bigger plans. The t-shirts were a great introduction but I felt that I had much more to offer and much more creativity to put on display.</p><p>Fashion is my escape. It is what keeps me grounded. All of the pieces I create all speak to who I am and all have a story and feeling behind it. I feel that I still have lots to learn and even more to experience, but that’s what keeps me going. I am blessed to be put in the position I’m in and I will keep working in hopes that one day I can inspire and help put people into the same position.</p>',
   },
   {
-    name: 'Buffalo Fashion House (d/b/a Buffalo Fashion Runway: Chad, Eman, Caine Rodney)',
+    name: 'Buffalo Fashion House (d/b/a Buffalo Fashion Runway: Chad, Eman, Caine & Rodney)',
     brand: 'Buffalo Fashion House d/b/a Buffalo Fashion Runway',
     image: '/headshots/buff-fashion-house.png',
     email: 'buffalofashionrunway@gmail.com',
