@@ -15,7 +15,7 @@ export default function SponsorHero() {
         alt=""
       />
       <img
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-full max-w-[280px] md:max-w-[320px] lg:max-w-[400px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2] w-full max-w-[160px] md:max-w-[320px] lg:max-w-[400px]"
         src="/sponsors/feat/fig-x-evans-bank-white-stack.png"
         alt=""
       />
