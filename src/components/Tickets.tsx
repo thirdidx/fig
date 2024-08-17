@@ -4,7 +4,7 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { useRef, useState } from 'react'
 
-import { Timeline } from '~/components'
+// import { Timeline } from '~/components'
 
 const pricing = {
   frequencies: [
@@ -52,22 +52,6 @@ const pricing = {
       ],
       mostPopular: false,
     },
-    // {
-    //   name: 'Enterprise',
-    //   id: 'tier-enterprise',
-    //   href: '#',
-    //   price: { monthly: '$90', annually: '$864' },
-    //   description: 'Dedicated support and infrastructure for your company.',
-    //   features: [
-    //     'Unlimited products',
-    //     'Unlimited subscribers',
-    //     'Advanced analytics',
-    //     '1-hour, dedicated support response time',
-    //     'Marketing automations',
-    //     'Custom reporting tools',
-    //   ],
-    //   mostPopular: false,
-    // },
   ],
 }
 
@@ -87,16 +71,36 @@ export default function Tickets() {
     >
       {/* Pricing section */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-4 text-center">
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-2">
           <h2 className="text-[37px] text-center">
             Fig Fashion Show, Volume 2
           </h2>
-          <p className="max-w-2xl mx-auto">
-            An evening of fashion, art, and culture. <br />
-            Seneca One Tower, 1 Seneca Drive Buffalo, NY 14203 <br />
-            September 28, 2024
-          </p>
-          <Timeline />
+          <p className="mb-4">September 28, 2024</p>
+          <div className="max-w-3xl w-full mx-auto flex flex-col md:flex-row gap-y-4 md:gap-x-8">
+            <div>
+              <ul className="list-inside flex flex-col gap-y-px text-left w-full mx-auto text-sm">
+                <li>
+                  <span className="vaneer">6 PM</span> Doors Open
+                </li>
+                <li>
+                  <span className="vaneer">6-8 PM</span> Cocktail Hour featuring
+                  Strolling Champagne Look by Buffalo Fashion House
+                </li>
+                <li>
+                  <span className="vaneer">8-9 PM</span> Fashion Show of 13 Cut
+                  and Sew Designers
+                </li>
+                <li>
+                  <span className="vaneer">9-11 PM</span> Afterparty with DJ
+                  Cutler and DJ Lisa Lux at Seneca One
+                </li>
+              </ul>
+            </div>
+            <p className="text-sm text-left">
+              Seneca One Tower
+              <br />1 Seneca Drive Buffalo, NY 14203
+            </p>
+          </div>
         </div>
 
         <div className="mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-3 lg:max-w-4xl xl:mx-0 xl:max-w-none">

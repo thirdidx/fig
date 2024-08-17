@@ -10,7 +10,7 @@ export default function Timeline() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link" className="vaneer">
+        <Button variant="link" className="vaneer text-accent">
           Event Timeline
         </Button>
       </HoverCardTrigger>
