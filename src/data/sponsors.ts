@@ -108,10 +108,10 @@ export const tier5 = [
     image: '/sponsors/friends-of-fig/buffalo-rising2.png',
   },
   {
-    name: 'Fiddlehead',
+    name: 'Sahu Sacred Oils',
     sponsorship: 'Friends of Fig',
-    href: 'https://fiddleheadbrewing.com/',
-    image: '/sponsors/friends-of-fig/fiddlehead.jpg',
+    href: 'https://www.sahuoils.com/',
+    image: '/sponsors/friends-of-fig/sahu-logo.png',
   },
   {
     name: 'Paul Mariani beauty',
