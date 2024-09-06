@@ -11,7 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '~/components/ui/carousel'
-import { tier1, tier3, tier4 } from '~/data/sponsors'
+import { tier1, tier2, tier3, tier4 } from '~/data/sponsors'
 
 function SponsorsCarousel() {
   const plugin = React.useRef(
@@ -23,7 +23,7 @@ function SponsorsCarousel() {
     }),
   )
 
-  const sponsors = [...tier1, ...tier3, ...tier4]
+  const sponsors = [...tier1, ...tier2, ...tier3, ...tier4]
   return (
     <Carousel
       opts={{

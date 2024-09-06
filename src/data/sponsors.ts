@@ -9,10 +9,10 @@ export const tier1 = [
 
 export const tier2 = [
   {
-    name: 'TBD',
+    name: 'Sandhill Investment Management',
     sponsorship: 'Runway Sponsor',
-    href: '#',
-    image: '',
+    href: 'https://sandhill-im.com/',
+    image: '/sponsors/feat/sh-logo.png',
   },
 ]
 
