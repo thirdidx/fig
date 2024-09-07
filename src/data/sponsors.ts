@@ -233,4 +233,22 @@ export const tier5 = [
     href: 'https://www.stitchbuffalo.org/',
     image: '/sponsors/friends-of-fig/stitch.png',
   },
+  {
+    name: 'Verge',
+    sponsorship: 'Friends of Fig',
+    href: 'https://tryverge.com/',
+    image: '/sponsors/friends-of-fig/verge.svg',
+  },
+  {
+    name: 'Pothead Parent',
+    sponsorship: 'Friends of Fig',
+    href: 'http://potheadparent.com',
+    image: '/sponsors/friends-of-fig/pothead-parent.jpg',
+  },
+  {
+    name: 'Her Kitchen',
+    sponsorship: 'Friends of Fig',
+    href: 'http://herkitchenbuffalo.com',
+    image: '/sponsors/friends-of-fig/her-kitch.jpg',
+  },
 ]
