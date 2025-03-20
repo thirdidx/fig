@@ -73,16 +73,17 @@ export default function Hero() {
                 </video>
               </div>
             ) : (
-              <Image
-                src="/hero-mobile.jpg"
-                quality={80}
-                priority
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: '100%', height: 'auto' }} // optional
-                alt=""
-              />
+              <div className="w-full h-dvh relative">
+                <Image
+                  src="/runwaygrl.jpg"
+                  quality={80}
+                  priority
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: 'cover' }} // optional
+                  alt=""
+                />
+              </div>
             )}
           </>
         )}

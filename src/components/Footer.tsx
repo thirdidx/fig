@@ -84,7 +84,7 @@ export default function SiteFooter() {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-lg leading-5 text-white vaneer uppercase">
-            &copy; 2024 Fig, Inc. All rights reserved.
+            &copy; 2025 Fig, Inc. All rights reserved.
           </p>
         </div>
       </div>

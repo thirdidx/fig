@@ -46,7 +46,7 @@ export default function VertVideo() {
             // muted
             className="max-w-[calc(100vw_-_3rem)] sm:max-w-full w-full h-full md:object-cover outline-none"
           >
-            <source src="/fig-launch-2024.mp4" type="video/mp4" />
+            <source src="/FIG2024_VertSponsors.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

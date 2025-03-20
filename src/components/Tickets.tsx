@@ -73,9 +73,9 @@ export default function Tickets() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-y-4 text-center">
         <div className="flex flex-col gap-y-2">
           <h2 className="text-[37px] text-center">
-            Fig Fashion Show, Volume 2
+            Fig Fashion Show, Volume 3
           </h2>
-          <p className="mb-4">September 28, 2024</p>
+          <p className="mb-4">September 27, 2025</p>
           <div className="max-w-3xl w-full mx-auto flex flex-col md:flex-row gap-y-4 md:gap-x-8">
             <div>
               <ul className="list-inside flex flex-col gap-y-px text-left w-full mx-auto text-sm">
