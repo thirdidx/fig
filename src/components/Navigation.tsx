@@ -16,11 +16,17 @@ const items = [
   { name: 'HOME', href: '/', isPrimary: true },
   { name: 'THE FIG STORY', href: '/about', isPrimary: true },
   { name: 'DESIGNER SHOWCASE', href: '/designers', isPrimary: true },
+  {
+    name: 'Designer Application',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSeyZOZyuAqx7IpLa8TTww_CjCGG2QUMUzFplx0kNCIZmZ0u9Q/viewform',
+    isPrimary: true,
+  },
   { name: 'SPONSORS', href: '/sponsors', isPrimary: true },
   // { name: 'GET INVOLVED', href: '/', isPrimary: true },
   // { name: 'STORE', href: '/', isPrimary: true },
   // { name: 'Stitch Buffalo', href: '/', isPrimary: false },
   { name: 'Contact us', href: '/contact', isPrimary: true },
+
   { name: 'Buy Tickets', href: '/#tickets', isPrimary: false, isButton: true },
 ]
 
