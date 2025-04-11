@@ -13,14 +13,7 @@ export default function DesignersPage() {
             <h2>Fig 2024 Lineup</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {designers.map((person) => (
-                <PersonCard
-                  key={person.name}
-                  person={person}
-                  // className="w-[150px]"
-                  aspectRatio="square"
-                  width={150}
-                  height={150}
-                />
+                <PersonCard key={person.name} person={person} />
               ))}
             </div>
           </div>

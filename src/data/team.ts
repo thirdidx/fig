@@ -30,12 +30,6 @@ export const team = [
     bio: "<p>Emma Storfer, the visionary behind Sweet & Dirty Vintage, is a prominent figure in Buffalo's vibrant creative landscape and a cherished member of the 716 Community. Hailing from Buffalo herself, Emma's lifelong dedication to fashion, styling, and fostering a sense of unity among her fellow residents has solidified her reputation as a leading voice in the local fashion scene. With a keen eye for design and an unwavering commitment to authenticity, Emma fearlessly shares her candid opinions on all things fashion-related. Whether you seek expert guidance or an unfiltered perspective, Emma's insightful advice is guaranteed to leave an indelible impression.</p>",
   },
   {
-    name: 'Sarah Schaefer',
-    role: 'Team Member',
-    image: '/headshots/sarah-schaefer.jpg',
-    bio: '<p>Sarah Schaefer is currently studying Advertising and Public Relations, with a minor in Professional and Technical Writing, at the University of Tampa. Originally from Buffalo, New York, she is passionate about contributing to her hometown’s vibrant community through her internship with fig™.</p>At UT, Sarah has developed a strong interest in content creation, social media campaigns, and event planning. She aims to expand her knowledge and experience in the advertising and public relations world, gaining valuable insights that will shape her future career path and professional identity. Sarah is excited to bring her enthusiasm and creativity to fig™, contributing to the growth and success of the team.<p>',
-  },
-  {
     name: 'Linda Schineller',
     role: 'Team Member',
     image: '/headshots/linda-schineller.png',
@@ -46,5 +40,11 @@ export const team = [
     role: 'Team Member',
     image: '/headshots/cannon-flowers.jpg',
     bio: '<p>Cannon enjoyed a long career with Texas Instruments Incorporated in Dallas, Texas.  Cannon served in an executive leadership capacity in corporate finance.  His assignments were in many parts of the world, including Japan, The Philippines, Italy, Germany, Taiwan, and Singapore.  After retiring from TI, Cannon moved to the non-profit sector where he served the next 10 years as Chief Executive Officer of Human Rights Initiative - an organization in Texas that provides legal and social services to people seeking asylum in the United States. In creating a new phase of life, in 2020 he and his husband relocated to Western New York – both are committed to community building to make significant positive transformation and growth for Buffalo’s historic period of renewed vibrancy and attractiveness.  Cannon sees fig™ as a powerful tool in the building infrastructure to support the resurge of Buffalo’s full potential in fashion.  We help preserve and promote diverse cultural expressions, craftsmanship, and traditional techniques by supporting the fashion industry.<p>',
+  },
+  {
+    name: 'Aquinnah Zelasko',
+    role: 'Team Member',
+    image: '/headshots/aquinnah-zelasko.jpg',
+    bio: `<p> </p>`
   },
 ]

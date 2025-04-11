@@ -16,8 +16,6 @@ interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function PersonCard({
   person,
   aspectRatio = 'portrait',
-  width,
-  height,
   className,
   ...props
 }: AlbumArtworkProps) {
@@ -27,17 +25,18 @@ export default function PersonCard({
         <Image
           src={person.image}
           alt={person.name}
-          width={width}
-          height={height}
+          width={400}
+          height={600}
           className={cn(
-            'h-auto w-auto object-cover transition-all hover:scale-105',
-            aspectRatio === 'portrait' ? 'aspect-[3/4]' : 'aspect-square',
+            'w-full h-auto object-cover transition-all hover:scale-105 aspect-[3/4]',
           )}
         />
       </div>
       <div className="space-y-1 text-sm">
         <h3 className="font-medium leading-none">{person.name}</h3>
-        <p className="text-xs text-muted-foreground">{person.role || person.brand}</p>
+        <p className="text-xs text-muted-foreground">
+          {person.role || person.brand}
+        </p>
       </div>
     </div>
   )

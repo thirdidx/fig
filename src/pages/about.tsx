@@ -30,10 +30,7 @@ export default function AboutPage() {
                   <PersonCard
                     key={person.name}
                     person={person}
-                    // className="w-[250px]"
                     aspectRatio="portrait"
-                    width={250}
-                    height={330}
                   />
                 ))}
               </div>
