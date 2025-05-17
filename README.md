@@ -1,149 +1,104 @@
-# A minimal Next.js site with Sanity Studio
+# Clean Next.js + Sanity app
 
-This starter is a statically generated site that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content.
-It comes with a native Sanity Studio that offers features like real-time collaboration, instant side-by-side content previews, and intuitive editing.
+This template includes a [Next.js](https://nextjs.org/) app with a [Sanity Studio](https://www.sanity.io/) – an open-source React application that connects to your Sanity project’s hosted dataset. The Studio is configured locally and can then be deployed for content collaboration.
 
-The Studio connects to Sanity Content Lake, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more.
-You can use this starter to kick-start a clean slate site or learn these technologies.
+![Screenshot of Sanity Studio using Presentation Tool to do Visual Editing](https://cdn.sanity.io/images/fkfgfb3d/production/8f626d30c5c41a5d2d75f899645beada2b82826b-3248x2112.png?auto=format)
 
-[![Deploy with Vercel](https://vercel.com/button)][vercel-deploy]
+## Features
 
-> **Note**
->
-> This starter uses the `/pages` directory for Next.js routing.
->
-> The template will be migrated to the currently experimental [/app][app-dir] directory
-> when Vercel announce that it is production ready.
+- **Next.js 15 for Performance:** Leverage the power of Next.js 15 App Router for blazing-fast performance and SEO-friendly static sites.
+- **Real-time Visual Editing:** Edit content live with Sanity's [Presentation Tool](https://www.sanity.io/docs/presentation) and see updates in real time.
+- **Live Content:** The [Live Content API](https://www.sanity.io/live) allows you to deliver live, dynamic experiences to your users without the complexity and scalability challenges that typically come with building real-time functionality.
+- **Customizable Pages with Drag-and-Drop:** Create and manage pages using a page builder with dynamic components and [Drag-and-Drop Visual Editing](https://www.sanity.io/visual-editing-for-structured-content).
+- **Powerful Content Management:** Collaborate with team members in real-time, with fine-grained revision history.
+- **AI-powered Media Support:** Auto-generate alt text with [Sanity AI Assist](https://www.sanity.io/ai-assist).
+- **On-demand Publishing:** No waiting for rebuilds—new content is live instantly with Incremental Static Revalidation.
+- **Easy Media Management:** [Integrated Unsplash support](https://www.sanity.io/plugins/sanity-plugin-asset-source-unsplash) for seamless media handling.
 
-## Table of Contents
+## Demo
 
-- [Features](#features)
-- [Table of Contents](#table-of-contents)
-- [Project Overview](#project-overview)
-  - [Important files and folders](#important-files-and-folders)
-- [Configuration](#configuration)
-  - [Step 1. Set up the environment](#step-1-set-up-the-environment)
-  - [Step 2. Set up the project locally](#step-2-set-up-the-project-locally)
-  - [Step 3. Run Next.js locally in development mode](#step-3-run-nextjs-locally-in-development-mode)
-  - [Step 4. Deploy to production](#step-4-deploy-to-production)
-- [Questions and Answers](#questions-and-answers)
-  - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
-  - [How can I remove the "Next steps" block from my app?](#how-can-i-remove-the-next-steps-block-from-my-app)
-  - [How can I set up Incremental Static Revalidation?](#how-can-i-set-up-incremental-static-revalidation)
-- [Next steps](#next-steps)
+https://template-nextjs-clean.sanity.dev
 
-## Project Overview
+## Getting Started
 
-| [Example Studio with preview](https://template-nextjs-clean.sanity.build/studio)                                        |
-| ----------------------------------------------------------------------------------------------------------------------- |
-| ![Sanity Studio](https://user-images.githubusercontent.com/44635000/197511725-b2a2e2e5-287b-41a9-84c6-ec90d37ca480.png) |
+### Installing the template
 
-# Important files and folders
+#### 1. Initialize template with Sanity CLI
 
-| File(s)                          | Description                                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------------- |
-| `sanity.config.ts`               | Config file for Sanity Studio                                                         |
-| `sanity.cli.ts`                  | Config file for Sanity CLI                                                            |
-| `/pages/index.tsx`               | Landing page for `/`.                                                                 |
-| `/pages/studio/[[...index]].tsx` | Where Sanity Studio is mounted                                                        |
-| `/pages/api/draft.ts`            | Serverless route for triggering Draft mode                                            |
-| `/sanity/schemas.ts`             | Where Sanity Studio gets its content types from                                       |
-| `/sanity/env.ts`                 | Configuration for the Sanity project and dataset                                      |
-| `/sanity/schemas.ts`             | Where Sanity Studio gets its content types from                                       |
-| `/sanity/lib/client.ts`          | Sanity client configured based on `env.ts`                                            |
-| `/sanity/lib/image.ts`           | Sanity image builder - unused in this template, but is needed to render Sanity images |
-| `tailwind.config.js`             | Tailwind config. Only applies to files listed under `content`                         |
+Run the command in your Terminal to initialize this template on your local computer.
 
-All pages are wrapped in `pages/_document.tsx` and `pages/_app.tsx`.
+See the documentation if you are [having issues with the CLI](https://www.sanity.io/help/cli-errors).
 
-## Configuration
-
-### Step 1. Set up the environment
-
-Use the Deploy Button below. It will let you deploy the starter using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-sanity-example) as well as connect it to your Sanity Content Lake using [the Sanity Vercel Integration][integration].
-
-[![Deploy with Vercel](https://vercel.com/button)][vercel-deploy]
-
-### Step 2. Set up the project locally
-
-[Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) that was created for you on your GitHub account. Once cloned, run the following command from the project's root directory:
-
-```bash
-npx vercel link
+```shell
+npm create sanity@latest -- --template sanity-io/sanity-template-nextjs-clean
 ```
 
-Download the environment variables needed to connect Next.js and the Studio to your Sanity project:
+#### 2. Run Studio and Next.js app locally
 
-```bash
-npx vercel env pull
+Navigate to the template directory using `cd <your app name>`, and start the development servers by running the following command
+
+```shell
+npm run dev
 ```
 
-This will create a git-ignored `.env` file with environment variables that will be used for local development.
+#### 3. Open the app and sign in to the Studio
 
-### Step 3. Run Next.js locally in development mode
+Open the Next.js app running locally in your browser on [http://localhost:3000](http://localhost:3000).
 
-```bash
-npm install && npm run dev
+Open the Studio running locally in your browser on [http://localhost:3333](http://localhost:3333). You should now see a screen prompting you to log in to the Studio. Use the same service (Google, GitHub, or email) that you used when you logged in to the CLI.
+
+### Adding content with Sanity
+
+#### 1. Publish your first document
+
+The template comes pre-defined with a schema containing `Page`, `Post`, `Person`, and `Settings` document types.
+
+From the Studio, click "+ Create" and select the `Post` document type. Go ahead and create and publish the document.
+
+Your content should now appear in your Next.js app ([http://localhost:3000](http://localhost:3000)) as well as in the Studio on the "Presentation" Tab
+
+#### 2. Import Sample Data (optional)
+
+You may want to start with some sample content and we've got you covered. Run this command from the root of your project to import the provided dataset (sample-data.tar.gz) into your Sanity project. This step is optional but can be helpful for getting started quickly.
+
+```shell
+npm run import-sample-data
 ```
 
-When you run this development server, the changes you make in your frontend and studio configuration will be applied live using hot reloading.
+#### 3. Extending the Sanity schema
 
-Your blog should be up and running on [http://localhost:3000][localhost-3000]! You can create and edit content on [http://localhost:3000/studio][localhost-3000-studio].
+The schema for the `Post` document type is defined in the `studio/src/schemaTypes/post.ts` file. You can [add more document types](https://www.sanity.io/docs/schema-types) to the schema to suit your needs.
 
-### Step 4. Deploy to production
+### Deploying your application and inviting editors
 
-To deploy your changes to production you use `git`:
+#### 1. Deploy Sanity Studio
 
-```bash
-git add .
-git commit
-git push
+Your Next.js frontend (`/nextjs-app`) and Sanity Studio (`/studio`) are still only running on your local computer. It's time to deploy and get it into the hands of other content editors.
+
+Back in your Studio directory (`/studio`), run the following command to deploy your Sanity Studio.
+
+```shell
+npx sanity deploy
 ```
 
-Alternatively, you can deploy without a `git` hosting provider using the Vercel CLI:
+#### 2. Deploy Next.js app to Vercel
 
-```bash
-npx vercel --prod
-```
+You have the freedom to deploy your Next.js app to your hosting provider of choice. With Vercel and GitHub being a popular choice, we'll cover the basics of that approach.
 
-## Questions and Answers
+1. Create a GitHub repository from this project. [Learn more](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
+2. Create a new Vercel project and connect it to your Github repository.
+3. Set the `Root Directory` to your Next.js app.
+4. Configure your Environment Variables.
 
-### It doesn't work! Where can I get help?
+#### 3. Invite a collaborator
 
-In case of any issues or questions, you can post:
+Now that you’ve deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
 
-- [GitHub Discussions for Next.js][vercel-github]
-- [Sanity's GitHub Discussions][sanity-github]
-- [Sanity's Community Slack][sanity-community]
+They will be able to access the deployed Studio, where you can collaborate together on creating content.
 
-### How can I remove the "Next steps" block from my app?
+## Resources
 
-You can remove it by deleting `intro-template`, and removing `IntroTemplate` usage from `pages/index.tsx`
-
-## Next steps
-
-- [Setup live preview](./docs/studio-preview.md)
-- [Join our Slack community to ask questions and get help][sanity-community]
-- [How to edit my content structure?][sanity-schema-types]
-- [How to query content?][sanity-groq]
-- [What is content modelling?][sanity-content-modelling]
-
-[vercel-deploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsanity-io%2Fsanity-template-nextjs-clean&repository-name=nextjs-sanity-clean&project-name=nextjs-sanity-clean&demo-title=Clean+Sanity+%2B+Next.js+app&demo-image=https%3A%2F%2Fuser-images.githubusercontent.com%2F835514%2F212771865-7a603a28-0416-45e8-84d3-2aafe02b0c7f.png&demo-description=A+clean+example+of+Next.js+with+embedded+Sanity+ready+for+recomposition.&demo-url=https%3A%2F%2Ftemplate-nextjs-clean.sanity.build&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx&external-id=nextjs%3Btemplate%3Dnextjs-sanity-clean
-[integration]: https://www.sanity.io/docs/vercel-integration?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[`.env.local.example`]: .env.local.example
-[nextjs]: https://github.com/vercel/next.js
-[sanity-create]: https://www.sanity.io/get-started/create-project?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-deployment]: https://www.sanity.io/docs/deployment?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-homepage]: https://www.sanity.io?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-community]: https://slack.sanity.io/
-[sanity-schema-types]: https://www.sanity.io/docs/schema-types?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-github]: https://github.com/sanity-io/sanity/discussions
-[sanity-groq]: https://www.sanity.io/docs/groq?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-content-modelling]: https://www.sanity.io/docs/content-modelling?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[sanity-webhooks]: https://www.sanity.io/docs/webhooks?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
-[localhost-3000]: http://localhost:3000
-[localhost-3000-studio]: http://localhost:3000/studio
-[vercel-isr]: https://nextjs.org/blog/next-12-1#on-demand-incremental-static-regeneration-beta
-[vercel]: https://vercel.com
-[vercel-github]: https://github.com/vercel/next.js/discussions
-[app-dir]: https://beta.nextjs.org/docs/routing/fundamentals#the-app-directory
+- [Sanity documentation](https://www.sanity.io/docs)
+- [Next.js documentation](https://nextjs.org/docs)
+- [Join the Sanity Community](https://slack.sanity.io)
+- [Learn Sanity](https://www.sanity.io/learn)

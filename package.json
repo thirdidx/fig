@@ -1,69 +1,29 @@
 {
-  "private": true,
+  "name": "figbuffalocom",
+  "description": "Next.js + Sanity: A Powerful Website Starter with Real-time Visual Editing",
   "scripts": {
-    "build": "next build",
-    "dev": "next",
-    "format": "npx prettier --write . --ignore-path .gitignore",
-    "lint": "next lint -- --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix",
-    "start": "next start",
-    "type-check": "tsc --noEmit"
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:next": "npm run dev --workspace=nextjs-app",
+    "dev:studio": "npm run dev --workspace=studio",
+    "import-sample-data": "cd studio && sanity dataset import sample-data.tar.gz --replace"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+  "keywords": [
+    "Sanity",
+    "Next.js",
+    "Headless CMS",
+    "Visual Editing",
+    "Live Content API (LCAPI)",
+    "Real-time"
+  ],
+  "bugs": {
+    "url": "https://github.com/sanity-io/sanity-template-nextjs-clean/issues"
   },
-  "dependencies": {
-    "@headlessui/react": "^2.1.2",
-    "@heroicons/react": "^2.1.5",
-    "@hookform/resolvers": "^3.9.0",
-    "@portabletext/react": "3.0.11",
-    "@radix-ui/react-accordion": "^1.2.0",
-    "@radix-ui/react-dialog": "^1.1.1",
-    "@radix-ui/react-hover-card": "^1.1.1",
-    "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-select": "^2.1.1",
-    "@radix-ui/react-slot": "^1.1.0",
-    "@radix-ui/react-toast": "^1.2.1",
-    "@radix-ui/react-tooltip": "^1.1.2",
-    "@sanity/client": "6.12.3",
-    "@sanity/demo": "1.0.2",
-    "@sanity/vision": "3.28.0",
-    "@tailwindcss/typography": "0.5.10",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "embla-carousel-react": "^8.1.6",
-    "framer-motion": "^11.3.4",
-    "lucide-react": "^0.408.0",
-    "next": "14.1.0",
-    "next-sanity": "5.5.11",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.52.1",
-    "resend": "^3.5.0",
-    "sanity": "3.28.0",
-    "sanity-plugin-iframe-pane": "2.6.1",
-    "styled-components": "6.1.8",
-    "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.1",
-    "zod": "^3.23.8"
-  },
+  "homepage": "https://github.com/sanity-io/sanity-template-nextjs-clean#readme",
+  "workspaces": [
+    "studio",
+    "nextjs-app"
+  ],
   "devDependencies": {
-    "@types/react": "18.2.55",
-    "autoprefixer": "^10.4.17",
-    "embla-carousel-autoplay": "^8.1.8",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.1.0",
-    "eslint-plugin-simple-import-sort": "10.0.0",
-    "postcss": "8.4.35",
-    "prettier": "3.2.5",
-    "prettier-plugin-packagejson": "2.4.10",
-    "prettier-plugin-tailwindcss": "0.5.11",
-    "tailwindcss": "^3.4.1",
-    "typescript": "5.3.3"
-  },
-  "engines": {
-    "node": ">=16"
+    "npm-run-all": "^4.1.5"
   }
 }
