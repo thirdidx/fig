@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
 
+// accent: '#FA4417',
+// rose: '#9A1914',
+// gold: '#FAA417',
+
 export default {
   content: ["./app/**/*.{ts,tsx}", "./sanity/**/*.{ts,tsx}"],
   theme: {
@@ -95,7 +99,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-fields)"],
+        display: ["var(--font-veneer)"],
       },
     },
   },

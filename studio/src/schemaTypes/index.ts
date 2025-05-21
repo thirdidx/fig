@@ -6,6 +6,7 @@ import {infoSection} from './objects/infoSection'
 import {settings} from './singletons/settings'
 import {link} from './objects/link'
 import {blockContent} from './objects/blockContent'
+import {hero} from './objects/hero'
 
 // Export an array of all the schema types.  This is used in the Sanity Studio configuration. https://www.sanity.io/docs/schema-types
 
@@ -20,5 +21,6 @@ export const schemaTypes = [
   blockContent,
   infoSection,
   callToAction,
+  hero,
   link,
 ]
