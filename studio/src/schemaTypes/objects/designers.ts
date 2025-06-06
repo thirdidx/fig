@@ -1,9 +1,9 @@
 import {defineField, defineType} from 'sanity'
 import {TextIcon} from '@sanity/icons'
 
-export const infoSection = defineType({
-  name: 'infoSection',
-  title: 'Info Section',
+export const designers = defineType({
+  name: 'designers',
+  title: 'Designers',
   type: 'object',
   icon: TextIcon,
   groups: [
@@ -30,10 +30,24 @@ export const infoSection = defineType({
       group: 'content',
     }),
     defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'blockContent',
+      name: 'designers',
+      title: 'Designers',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'person'}]}],
       group: 'content',
+    }),
+    defineField({
+      name: 'layout',
+      title: 'Layout',
+      description: 'Toggles between grid image view and list text view',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Grid', value: 'grid'},
+          {title: 'List', value: 'list'},
+        ],
+      },
+      group: 'design',
     }),
   ],
   preview: {

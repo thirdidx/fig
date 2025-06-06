@@ -27,6 +27,19 @@ const linkFields = /* groq */ `
       }
 `;
 
+const personReference = /* groq */ `
+  _type == "person" => {
+    "firstName": firstName,
+    "lastName": lastName,
+    "picture": picture,
+    "socials": socials[] {
+      ...,
+      ${linkReference}
+    }
+  }
+`;
+
+
 export const getPageQuery = defineQuery(`
   *[_type == 'page' && slug.current == $slug][0]{
     _id,
@@ -49,6 +62,14 @@ export const getPageQuery = defineQuery(`
           }
         }
       },
+      _type == "designers" => {
+        ...,
+        "designers": designers[]->{
+          ...,
+          ${personReference}
+        },
+        "layout": layout
+      } 
     },
   }
 `);

@@ -6,7 +6,12 @@ import typography from "@tailwindcss/typography";
 // gold: '#FAA417',
 
 export default {
-  content: ["./app/**/*.{ts,tsx}", "./sanity/**/*.{ts,tsx}"],
+  // content: ["./app/**/*.{ts,tsx}", "./sanity/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -33,17 +38,17 @@ export default {
           950: "#0d181c",
         },
         gray: {
-          50: "#f6f6f8",
-          100: "#eeeef1",
-          200: "#e3e4e8",
-          300: "#bbbdc9",
-          400: "#9499ad",
-          500: "#727892",
-          600: "#515870",
-          700: "#383d51",
-          800: "#252837",
-          900: "#1b1d27",
-          950: "#13141b",
+          50: "#fafafa",
+          100: "#f5f5f5",
+          200: "#e5e5e5",
+          300: "#d4d4d4",
+          400: "#a3a3a3",
+          500: "#737373",
+          600: "#525252",
+          700: "#404040",
+          800: "#262626",
+          900: "#171717",
+          950: "#0a0a0a",
         },
         red: {
           50: "#fff6f5",
@@ -99,8 +104,28 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-fields)"],
-        display: ["var(--font-veneer)"],
+        sans: ["var(--font-instrument-sans)"],
+        serif: ["var(--font-instrument-serif)"],
+      },
+      typography: ({ theme }: { theme: any }) => ({
+        DEFAULT: {
+          css: {
+            'h1, h2, h3, h4, h5, h6': {
+              fontWeight: '400',
+              fontFamily: 'var(--font-instrument-serif)',
+
+            },
+          },
+        },
+      }),
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },

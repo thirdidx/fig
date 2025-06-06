@@ -2,7 +2,8 @@ import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+// import localFont from 'next/font/local'
 import { draftMode } from "next/headers";
 import { VisualEditing, toPlainText } from "next-sanity";
 import { Toaster } from "sonner";
@@ -51,14 +52,26 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const fields = localFont({
-  src: '../public/fonts/Fields-ExtraLight.woff2',
-  variable: '--font-fields',
+// const fields = localFont({
+//   src: '../public/fonts/Fields-ExtraLight.woff2',
+//   variable: '--font-fields',
+// })
+
+// const veneer = localFont({
+//   src: '../public/fonts/Veneer-Regular.woff2',
+//   variable: '--font-veneer',
+// })
+
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-instrument-sans',
 })
 
-const veneer = localFont({
-  src: '../public/fonts/Veneer-Regular.woff2',
-  variable: '--font-veneer',
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-instrument-serif',
 })
 
 export default async function RootLayout({
@@ -69,9 +82,9 @@ export default async function RootLayout({
   const { isEnabled: isDraftMode } = await draftMode();
 
   return (
-    <html lang="en" className={`${fields.variable} ${veneer.variable} bg-white text-black`}>
+    <html lang="en" className={`${instrumentSans.variable} ${instrumentSerif.variable}  bg-white text-black`}>
       <body>
-        <section className="min-h-screen pt-24">
+        <section className="min-h-screen flex flex-col">
           {/* The <Toaster> component is responsible for rendering toast notifications used in /app/client-utils.ts and /app/components/DraftModeToast.tsx */}
           <Toaster />
           {isDraftMode && (
@@ -83,8 +96,8 @@ export default async function RootLayout({
           )}
           {/* The <SanityLive> component is responsible for making all sanityFetch calls in your application live, so should always be rendered. */}
           <SanityLive onError={handleError} />
-          <Header />
-          <main className="">{children}</main>
+          {/* <Header /> */}
+          <main className="flex-1">{children}</main>
           <Footer />
         </section>
         <SpeedInsights />

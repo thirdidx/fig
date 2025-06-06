@@ -1,13 +1,63 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { AllPosts } from "@/app/components/Posts";
 import GetStartedCode from "@/app/components/GetStartedCode";
+import { getPageQuery } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
+import PortableText from "@/app/components/PortableText";
 
 export default async function Page() {
+  const { data } = await sanityFetch({ query: getPageQuery, params: { slug: "home" } });
+  console.log(data);
+
+  const designers = data?.pageBuilder?.find((item: any) => item._type === "designers")?.designers;
+  const dupeDesigners = [...designers, ...designers, ...designers, ...designers];
+
+  const introText = data?.pageBuilder?.find((item: any) => item._type === "infoSection");
+  const callToAction = data?.pageBuilder?.find((item: any) => item._type === "callToAction");
+
   return (
     <>
-      <div className="bg-gradient-to-r from-red-200 from-0% via-white via-40%  relative">
+      <div className="min-h-screen w-screen">
+        <div className="h-[50dvh] w-full relative">
+          <Image src="/sponsor-hero-1.jpg" alt="fig" className="h-full w-full object-cover absolute top-0 left-0" fill priority />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 container py-12">
+          <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
+            <p className="text-xs font-bold uppercase text-gray-400">{introText?.subheading}</p>
+            <PortableText value={introText?.content} className="font-serif text-xl md:text-2xl text-balance" />
+          </div>
+          <div className="col-span-1 md:col-span-2 flex justify-center md:justify-end gap-2 md:gap-4">
+            <a target={callToAction?.link?.openInNewTab ? "_blank" : "_self"} href={callToAction?.link?.href} className="btn btn-primary">{callToAction?.buttonText}</a>
+            <a href="#" className="btn btn-primary disabled">Purchase tickets</a>
+          </div>
+        </div>
+        <div className="container py-12 flex flex-col gap-4">
+          <p className="text-xs font-bold uppercase text-gray-400">fig 2025 designer lineup</p>
+          <div className="relative overflow-x-hidden w-full flex items-center">
+            <div className="inline-flex whitespace-nowrap">
+              <div className="animate-marquee inline-flex">
+                {dupeDesigners?.map((designer: any, index: number) => (
+                  <div key={index} className="text-xs font-bold uppercase text-black inline-block mx-4">
+                    {designer.firstName} {designer.lastName}
+                  </div>
+                ))}
+              </div>
+              <div className="animate-marquee inline-flex">
+                {dupeDesigners?.map((designer: any, index: number) => (
+                  <div key={index} className="text-xs font-bold uppercase text-black inline-block mx-4">
+                    {designer.firstName} {designer.lastName}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          {/* <a href="#" className="text-xs font-bold uppercase text-gray-300">see all designers →</a> */}
+        </div>
+      </div>
+      {/* <div className="bg-gradient-to-r from-red-200 from-0% via-white via-40%  relative">
         <div className="bg-gradient-to-b from-white w-full h-40 absolute top-0"></div>
         <div className="bg-gradient-to-t from-white w-full h-40 absolute bottom-0"></div>
         <div className="container relative">
@@ -63,7 +113,7 @@ export default async function Page() {
             <Suspense>{await AllPosts()}</Suspense>
           </aside>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
