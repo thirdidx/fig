@@ -207,7 +207,7 @@ export default function Sponsors({
   const gridClasses = getGridClasses(columns, layout);
 
   return (
-    <div className={`py-12 ${backgroundClasses}`}>
+    <div className={`py-4 ${backgroundClasses}`}>
       {/* Header */}
       {(block.heading || block.subheading) && (
         <div className="text-center mb-8">

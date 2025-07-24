@@ -11,10 +11,6 @@ export default async function Page() {
   });
 
   return (
-    <>
-      <div className="min-h-screen w-screen">
-        <PageBuilderPage page={data as GetPageQueryResult} />
-      </div>
-    </>
+    <PageBuilderPage page={data as GetPageQueryResult} />
   );
 }

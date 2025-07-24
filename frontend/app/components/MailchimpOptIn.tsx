@@ -99,7 +99,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
 
   return (
     <div className={isInContainer ? "w-full h-full" : "container mx-auto my-12"}>
-      <div className={`bg-dark ${isInContainer ? 'w-full h-full flex justify-center' : 'rounded-lg shadow-sm border border-gray-200 max-w-2xl mx-auto'}`}>
+      <div className={`bg-dark ${isInContainer ? 'w-full h-full flex justify-center' : 'shadow-layer border border-taupe max-w-2xl mx-auto'}`}>
         <div className={`${isInContainer ? 'max-w-lg w-full' : ''} p-8 md:p-12`}>
           <div className="text-center md:text-left mb-8">
             <h2 className="text-2xl text-white mb-3">
@@ -118,13 +118,13 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
           </div>
 
           {status === 'success' && (
-            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-center">
+            <div className="mb-6 p-4 bg-light border border-taupe text-maroon text-center">
               {message}
             </div>
           )}
           
           {status === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-center">
+            <div className="mb-6 p-4 bg-maroon/10 border border-maroon text-maroon text-center">
               {message}
             </div>
           )}
@@ -146,7 +146,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                     placeholder={field.placeholder}
                     value={additionalFields[field.fieldName] || ''}
                     onChange={(e) => handleAdditionalFieldChange(field.fieldName, e.target.value)}
-                    className={`w-full bg-white text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre focus:outline-none transition-colors placeholder-gray-500 ${getSizeClasses()}`}
+                    className={`w-full bg-light text-dark border-2 border-taupe focus:border-ochre focus:outline-none transition-colors placeholder-taupe ${getSizeClasses()}`}
                     required
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                     placeholder={block.emailPlaceholder || 'Enter your email address'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`w-full bg-white text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre focus:outline-none transition-colors placeholder-gray-500 ${getSizeClasses()}`}
+                    className={`w-full bg-light text-dark border-2 border-taupe focus:border-ochre focus:outline-none transition-colors placeholder-taupe ${getSizeClasses()}`}
                     required
                   />
                 </div>
@@ -172,7 +172,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className={`${isInline ? 'flex-shrink-0' : 'w-full'} bg-light cursor-pointer text-dark font-accent uppercase rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${getSizeClasses()}`}
+                  className={`${isInline ? 'flex-shrink-0' : 'w-full'} bg-maroon hover:bg-maroon/90 text-light font-accent uppercase transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${getSizeClasses()}`}
                 >
                   {status === 'loading' ? 'Subscribing...' : block.buttonText}
                 </button>

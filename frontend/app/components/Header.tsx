@@ -7,11 +7,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <header className="absolute z-50 w-full mix-blend-exclusion text-white">
-        <div className="p-4 h-full">
-          <div className="flex md:grid md:grid-cols-3 items-center justify-between h-full">
-            {/* Logo */}
-            <div className="md:justify-self-start">
+      <header className="container mx-auto max-w-7xl">
+        <div className="py-4 px-4 md:px-4 h-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo and Navigation Links */}
+            <div className="flex items-center gap-8">
+              {/* Logo */}
               <Link className="w-[32px] md:w-[90px] block" href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -23,56 +24,56 @@ export default function Header() {
                   />
                 </svg>
               </Link>
+
+              {/* Desktop Navigation Links */}
+              <nav className="hidden md:block">
+                <ul className="flex items-center gap-6 text-sm md:text-base font-normal font-accent uppercase">
+                  <li>
+                    <Link
+                      href="/designers"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      Designers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/sponsors"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      Sponsors
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      Tickets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="hover:opacity-70 transition-opacity"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
             </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:block md:justify-self-center">
-              <ul className="flex items-center gap-6 text-sm md:text-base font-normal font-accent uppercase">
-                <li>
-                  <Link
-                    href="/designers"
-                    className="hover:opacity-70 transition-opacity"
-                  >
-                    Designers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/sponsors"
-                    className="hover:opacity-70 transition-opacity"
-                  >
-                    Sponsors
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                    className="hover:opacity-70 transition-opacity"
-                  >
-                    Tickets
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:opacity-70 transition-opacity"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:opacity-70 transition-opacity"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-
             {/* Desktop CTA Button */}
-            <div className="hidden md:block md:justify-self-end">
+            <div className="hidden md:block">
               <Link
                 href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
                 className="btn btn-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3"
@@ -83,18 +84,18 @@ export default function Header() {
 
             {/* Mobile Hamburger Button */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
+              className="md:hidden flex flex-col justify-center items-center w-10 h-10 backdrop-blur-sm transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               <span
-                className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? "rotate-45 translate-y-1.5" : ""}`}
+                className={`w-5 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
               ></span>
               <span
-                className={`w-6 h-0.5 bg-white transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`}
+                className={`w-5 h-0.5 bg-black transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
-                className={`w-6 h-0.5 bg-white transition-transform duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
+                className={`w-5 h-0.5 bg-black transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
               ></span>
             </button>
           </div>
@@ -103,18 +104,48 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black bg-opacity-50"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setIsMenuOpen(false)}
           ></div>
-          <div className="fixed top-24 left-0 right-0 bg-dark text-white p-6">
-            <nav>
+
+          {/* Menu Panel */}
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-gray-900 to-black shadow-2xl transform transition-transform duration-300 ease-out">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <h2 className="text-white font-accent text-lg uppercase tracking-wider">
+                Menu
+              </h2>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center"
+                aria-label="Close menu"
+              >
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="px-6 py-8">
               <ul className="space-y-6">
                 <li>
                   <Link
                     href="/designers"
-                    className="block text-lg hover:opacity-70 transition-opacity"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Designers
@@ -123,7 +154,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/sponsors"
-                    className="block text-lg hover:opacity-70 transition-opacity"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sponsors
@@ -132,7 +163,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                    className="block text-lg hover:opacity-70 transition-opacity"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Tickets
@@ -141,7 +172,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/about"
-                    className="block text-lg hover:opacity-70 transition-opacity"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     About
@@ -150,22 +181,24 @@ export default function Header() {
                 <li>
                   <Link
                     href="/contact"
-                    className="block text-lg hover:opacity-70 transition-opacity"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Contact
                   </Link>
                 </li>
-                <li className="pt-4">
-                  <Link
-                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                    className="btn btn-primary block text-center py-3"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Buy Tickets
-                  </Link>
-                </li>
               </ul>
+
+              {/* CTA Button */}
+              <div className="mt-12">
+                <Link
+                  href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                  className="btn btn-primary w-full justify-center py-4 text-lg font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Buy Tickets
+                </Link>
+              </div>
             </nav>
           </div>
         </div>
