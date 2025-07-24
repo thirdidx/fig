@@ -15,8 +15,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-gray-100 border-t">
-      <div className="container py-12 px-4">
+    <footer className="bg-light border-gray-100 border-t">
+      <div className="py-12 px-4 md:px-8 lg:px-12">
         <div className="flex flex-col items-center lg:flex-row">
           <div className="text-sm mb-10 text-center font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left">
             © 2025 fig, inc.

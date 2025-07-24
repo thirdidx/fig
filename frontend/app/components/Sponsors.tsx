@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
 
@@ -53,7 +52,7 @@ const tierOrder = {
 
 const tierLabels = {
   platinum: "Platinum Sponsors",
-  gold: "Gold Sponsors", 
+  gold: "Gold Sponsors",
   silver: "Silver Sponsors",
   bronze: "Bronze Sponsors",
   supporting: "Supporting Sponsors",
@@ -76,9 +75,9 @@ const getGridClasses = (columns: number = 4, layout: string = "grid") => {
     return "flex flex-wrap justify-center items-center gap-6";
   }
   if (layout === "carousel") {
-    return "flex overflow-x-auto gap-6 pb-4";
+    return "flex gap-6 pb-4";
   }
-  
+
   switch (columns) {
     case 1:
       return "grid grid-cols-1 gap-6";
@@ -111,23 +110,25 @@ const getBackgroundClasses = (backgroundColor: string = "none") => {
   }
 };
 
-const SponsorItem = ({ 
-  sponsor, 
-  logoSize, 
-  layout 
-}: { 
-  sponsor: Sponsor; 
-  logoSize: string; 
+const SponsorItem = ({
+  sponsor,
+  logoSize,
+  layout,
+}: {
+  sponsor: Sponsor;
+  logoSize: string;
   layout: string;
 }) => {
   const logoClasses = getLogoSizeClasses(logoSize);
   const isCarousel = layout === "carousel";
-  
+
   const logoElement = (
-    <div className={`flex items-center justify-center p-4 ${isCarousel ? 'flex-shrink-0' : ''}`}>
+    <div
+      className={`flex items-center justify-center p-4 ${isCarousel ? "flex-shrink-0" : ""}`}
+    >
       {sponsor.logo?.asset && (
         <Image
-          src={urlForImage(sponsor.logo)?.url() || ''}
+          src={urlForImage(sponsor.logo)?.url() || ""}
           alt={sponsor.logo.alt || sponsor.name}
           width={150}
           height={80}
@@ -155,25 +156,35 @@ const SponsorItem = ({
 };
 
 const groupSponsorsByTier = (sponsors: Sponsor[]) => {
-  const grouped = sponsors.reduce((acc, sponsor) => {
-    const tier = sponsor.tier || 'supporting';
-    if (!acc[tier]) {
-      acc[tier] = [];
-    }
-    acc[tier].push(sponsor);
-    return acc;
-  }, {} as Record<string, Sponsor[]>);
+  const grouped = sponsors.reduce(
+    (acc, sponsor) => {
+      const tier = sponsor.tier || "supporting";
+      if (!acc[tier]) {
+        acc[tier] = [];
+      }
+      acc[tier].push(sponsor);
+      return acc;
+    },
+    {} as Record<string, Sponsor[]>
+  );
 
   // Sort groups by tier order
   return Object.keys(grouped)
-    .sort((a, b) => (tierOrder[a as keyof typeof tierOrder] || 99) - (tierOrder[b as keyof typeof tierOrder] || 99))
-    .map(tier => ({
+    .sort(
+      (a, b) =>
+        (tierOrder[a as keyof typeof tierOrder] || 99) -
+        (tierOrder[b as keyof typeof tierOrder] || 99)
+    )
+    .map((tier) => ({
       tier,
       sponsors: grouped[tier],
     }));
 };
 
-export default function Sponsors({ block, isInContainer = false }: SponsorsProps) {
+export default function Sponsors({
+  block,
+  isInContainer = false,
+}: SponsorsProps) {
   const sponsors = block.sponsors || [];
   const layout = block.layout || "grid";
   const columns = block.columns || 4;
@@ -190,35 +201,47 @@ export default function Sponsors({ block, isInContainer = false }: SponsorsProps
   const gridClasses = getGridClasses(columns, layout);
 
   return (
-    <div className={isInContainer ? "" : "container mx-auto my-12"}>
-      <div className={`py-12 ${backgroundClasses}`}>
-        {/* Header */}
-        {(block.heading || block.subheading) && (
-          <div className="text-center mb-8">
-            {block.heading && (
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-                {block.heading}
-              </h2>
-            )}
-            {block.subheading && (
-              <p className="text-lg text-gray-600">
-                {block.subheading}
-              </p>
-            )}
-          </div>
-        )}
+    <div className={`py-12 ${backgroundClasses}`}>
+      {/* Header */}
+      {(block.heading || block.subheading) && (
+        <div className="text-center mb-8">
+          {block.heading && (
+            <h2 className="text-2xl mb-2">
+              {block.heading}
+            </h2>
+          )}
+          {block.subheading && (
+            <p className="text-lg text-gray-600">{block.subheading}</p>
+          )}
+        </div>
+      )}
 
-        <Suspense fallback={null}>
-          {/* Sponsors Display */}
-          {groupByTier ? (
-            <div className="space-y-12">
-              {groupSponsorsByTier(sponsors).map(({ tier, sponsors: tierSponsors }) => (
-                <div key={tier}>
-                  {showTierLabels && (
-                    <h3 className="text-xl font-semibold text-center mb-6">
-                      {tierLabels[tier as keyof typeof tierLabels] || `${tier.charAt(0).toUpperCase() + tier.slice(1)} Sponsors`}
-                    </h3>
-                  )}
+      {/* Sponsors Display */}
+      {groupByTier ? (
+        <div className="space-y-12">
+          {groupSponsorsByTier(sponsors).map(
+            ({ tier, sponsors: tierSponsors }) => (
+              <div key={tier}>
+                {showTierLabels && (
+                  <h3 className="text-xl font-semibold text-center mb-6">
+                    {tierLabels[tier as keyof typeof tierLabels] ||
+                      `${tier.charAt(0).toUpperCase() + tier.slice(1)} Sponsors`}
+                  </h3>
+                )}
+                {layout === "carousel" ? (
+                  <div className="overflow-hidden">
+                    <div className="flex animate-marquee gap-6 pb-4">
+                      {[...tierSponsors, ...tierSponsors].map((sponsor, index) => (
+                        <SponsorItem
+                          key={`${sponsor._id}-${index}`}
+                          sponsor={sponsor}
+                          logoSize={logoSize}
+                          layout={layout}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ) : (
                   <div className={gridClasses}>
                     {tierSponsors.map((sponsor) => (
                       <SponsorItem
@@ -229,23 +252,36 @@ export default function Sponsors({ block, isInContainer = false }: SponsorsProps
                       />
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className={gridClasses}>
-              {sponsors.map((sponsor) => (
-                <SponsorItem
-                  key={sponsor._id}
-                  sponsor={sponsor}
-                  logoSize={logoSize}
-                  layout={layout}
-                />
-              ))}
-            </div>
+                )}
+              </div>
+            )
           )}
-        </Suspense>
-      </div>
+        </div>
+      ) : layout === "carousel" ? (
+        <div className="overflow-hidden">
+          <div className="flex animate-marquee gap-6 pb-4">
+            {[...sponsors, ...sponsors].map((sponsor, index) => (
+              <SponsorItem
+                key={`${sponsor._id}-${index}`}
+                sponsor={sponsor}
+                logoSize={logoSize}
+                layout={layout}
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className={gridClasses}>
+          {sponsors.map((sponsor) => (
+            <SponsorItem
+              key={sponsor._id}
+              sponsor={sponsor}
+              logoSize={logoSize}
+              layout={layout}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

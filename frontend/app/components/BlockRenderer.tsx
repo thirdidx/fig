@@ -8,7 +8,6 @@ import Container from "@/app/components/Container";
 import MailchimpOptIn from "@/app/components/MailchimpOptIn";
 import Sponsors from "@/app/components/Sponsors";
 import ImageCollection from "@/app/components/ImageCollection";
-import BentoGridCMS from "@/app/components/BentoGridCMS";
 import { dataAttr } from "@/sanity/lib/utils";
 
 type BlocksType = {
@@ -36,7 +35,6 @@ const Blocks: BlocksType = {
   mailchimpOptIn: MailchimpOptIn,
   sponsors: Sponsors,
   imageCollection: ImageCollection,
-  bentoGrid: BentoGridCMS,
 };
 
 /**

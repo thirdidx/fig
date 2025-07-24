@@ -99,19 +99,19 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
 
   return (
     <div className={isInContainer ? "w-full h-full" : "container mx-auto my-12"}>
-      <div className={`bg-light ${isInContainer ? 'w-full h-full flex items-center justify-center' : 'rounded-lg shadow-sm border border-gray-200 max-w-2xl mx-auto'}`}>
-        <div className={`${isInContainer ? 'max-w-lg w-full' : ''} p-8`}>
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-dark mb-3">
+      <div className={`bg-dark ${isInContainer ? 'w-full h-full flex justify-center' : 'rounded-lg shadow-sm border border-gray-200 max-w-2xl mx-auto'}`}>
+        <div className={`${isInContainer ? 'max-w-lg w-full' : ''} p-8 md:p-12`}>
+          <div className="text-center md:text-left mb-8">
+            <h2 className="text-2xl text-white mb-3">
               {block.heading}
             </h2>
             {block.subheading && (
-              <p className="text-lg text-gray-700 mb-2">
+              <p className="text-lg text-gray-300 mb-2">
                 {block.subheading}
               </p>
             )}
             {block.description && (
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed">
                 {block.description}
               </p>
             )}
@@ -135,7 +135,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                 <div key={field._key}>
                   <label 
                     htmlFor={field.fieldName} 
-                    className="block text-sm font-medium text-dark mb-2"
+                    className="block text-sm font-medium text-white mb-2"
                   >
                     {field.label}
                   </label>
@@ -146,7 +146,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                     placeholder={field.placeholder}
                     value={additionalFields[field.fieldName] || ''}
                     onChange={(e) => handleAdditionalFieldChange(field.fieldName, e.target.value)}
-                    className={`w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre transition-colors ${getSizeClasses()}`}
+                    className={`w-full bg-white text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre focus:outline-none transition-colors placeholder-gray-500 ${getSizeClasses()}`}
                     required
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                     placeholder={block.emailPlaceholder || 'Enter your email address'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre transition-colors ${getSizeClasses()}`}
+                    className={`w-full bg-white text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ochre focus:border-ochre focus:outline-none transition-colors placeholder-gray-500 ${getSizeClasses()}`}
                     required
                   />
                 </div>
@@ -172,14 +172,14 @@ export default function MailchimpOptIn({ block, isInContainer = false }: Mailchi
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className={`${isInline ? 'flex-shrink-0' : 'w-full'} bg-dark hover:bg-ochre text-light font-medium rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${getSizeClasses()}`}
+                  className={`${isInline ? 'flex-shrink-0' : 'w-full'} bg-light cursor-pointer text-dark font-accent uppercase rounded-full transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${getSizeClasses()}`}
                 >
                   {status === 'loading' ? 'Subscribing...' : block.buttonText}
                 </button>
               </div>
 
               {block.gdprCompliance && (
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-xs text-gray-400 text-center mt-4">
                   {block.gdprCompliance}
                 </p>
               )}
