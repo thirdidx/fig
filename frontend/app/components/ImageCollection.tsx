@@ -269,7 +269,7 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
   );
 
   return (
-    <div className={isInContainer ? "px-6 md:px-8 lg:px-12 md:sticky md:top-0" : "container mx-auto my-12"}>
+    <div className={isInContainer ? "px-4 md:sticky md:top-0" : "container mx-auto my-12"}>
       <div className="py-8">
         {/* Header */}
         {(block.heading || block.subheading || block.description) && (

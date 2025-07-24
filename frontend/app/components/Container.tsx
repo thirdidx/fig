@@ -314,9 +314,9 @@ export default function Container({ block }: ContainerProps) {
   return (
     <div className={`w-full ${getBackgroundClass(backgroundColor)}`}>
       {block.heading && (
-        <div className="text-center mb-8 px-6">
+        <div className="text-center mb-8 px-4">
           <h2
-            className={`text-2xl md:text-3xl lg:text-4xl font-bold ${backgroundColor === "dark" || backgroundColor === "maroon" ? "text-light" : "text-dark"}`}
+            className={`text-2xl ${backgroundColor === "dark" || backgroundColor === "maroon" ? "text-light" : "text-dark"}`}
           >
             {block.heading}
           </h2>

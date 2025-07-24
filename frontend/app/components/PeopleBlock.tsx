@@ -24,7 +24,7 @@ type PeopleBlockProps = {
 
 export default function PeopleBlock({ block, isInContainer = false }: PeopleBlockProps) {
   return (
-    <section className={isInContainer ? "py-8 px-6 md:px-8 lg:px-12" : "container py-16 lg:py-20"}>
+    <section className={isInContainer ? "py-8 px-4 " : "container py-16 lg:py-20"}>
       <div className="max-w-7xl mx-auto">
         {block?.heading && (
           <div className="text-center md:text-left mb-12 lg:mb-16">
@@ -35,33 +35,33 @@ export default function PeopleBlock({ block, isInContainer = false }: PeopleBloc
         )}
         
         {block?.people && block.people.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8">
             {block.people.map((person, index) => {
               const imageUrl = person.picture?.asset?._ref ? urlForImage(person.picture)?.url() : null;
               
               return (
                 <div 
                   key={person._id || index} 
-                  className="group cursor-pointer transition-all duration-300 hover:scale-105"
+                  className="group cursor-pointer transition-all duration-300"
                 >
-                  <div className="aspect-square relative overflow-hidden rounded-2xl bg-gray-100 shadow-sm group-hover:shadow-lg transition-shadow duration-300">
+                  <div className="aspect-[4/5] relative overflow-hidden bg-taupe/20">
                     {imageUrl ? (
                       <Image
                         src={imageUrl}
                         alt={person.picture.alt || `${person.firstName} ${person.lastName}` || "Person"}
                         fill
-                        className="object-cover transition-all duration-300 group-hover:scale-110"
+                        className="object-cover transition-all duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                        <span className="text-gray-400 text-sm">No Image</span>
+                      <div className="w-full h-full flex items-center justify-center bg-taupe/10">
+                        <span className="text-taupe text-sm font-accent uppercase">No Image</span>
                       </div>
                     )}
                   </div>
                   
-                  <div className="mt-4 text-center">
-                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
+                  <div className="mt-3 text-center">
+                    <h3 className="text-sm font-accent uppercase tracking-wider text-maroon/80 group-hover:text-maroon transition-colors duration-300">
                       {person.firstName} {person.lastName}
                     </h3>
                   </div>
@@ -73,7 +73,7 @@ export default function PeopleBlock({ block, isInContainer = false }: PeopleBloc
         
         {(!block?.people || block.people.length === 0) && (
           <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">No people to display</p>
+            <p className="text-taupe text-lg font-accent uppercase tracking-wide">No people to display</p>
           </div>
         )}
       </div>
