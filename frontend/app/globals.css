@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* Font families are defined in layout.tsx via Next.js font loading */
+:root {
+  /* Custom color palette */
+  --color-light: #f2f1e7;
+  --color-taupe: #b9ac9c;
+  --color-ochre: #8b6b45;
+  --color-maroon: #4a2421;
+  --color-dark: #190c03;
+}
+
+@theme {
+  --color-light: #f2f1e7;
+  --color-taupe: #b9ac9c;
+  --color-ochre: #8b6b45;
+  --color-maroon: #4a2421;
+  --color-dark: #190c03;
+  --color-white: #ffffff;
+
+  --font-body: var(--font-fields);
+  --font-accent: var(--font-veneer);
+}
+
+@layer base {
+  body {
+    @apply bg-light text-dark font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-xl md:text-2xl uppercase text-maroon font-accent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-xs font-bold flex items-center justify-center px-4 py-2 rounded-full transition-all h-8 font-accent uppercase;
+  }
+
+  .btn-primary {
+    @apply bg-maroon text-light hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply bg-taupe text-dark hover:opacity-90;
+  }
+
+  .btn.disabled {
+    @apply bg-taupe text-light cursor-not-allowed opacity-50;
+  }
+}
+
+@layer utilities {
+  /* Custom box shadows */
+  .shadow-layer {
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Embla Carousel Styles */
+  .embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  /* Custom keyframes and animations */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}

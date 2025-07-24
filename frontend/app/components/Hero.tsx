@@ -1,0 +1,97 @@
+"use client";
+
+import React, { useRef, useEffect } from "react";
+
+interface HeroProps {
+  block: {
+    _type: string;
+    _key: string;
+    videoUrl?: string;
+    heading?: string;
+    subheading?: string;
+  };
+  index: number;
+}
+
+export default function Hero({ block }: HeroProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  console.log("Hero block:", block);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      // Ensure video plays on load
+      videoRef.current.play().catch((error) => {
+        console.log("Video autoplay failed:", error);
+      });
+    }
+  }, []);
+
+  return (
+    <section className="relative w-full md:h-screen overflow-hidden">
+      {/* Mobile: 16:9 aspect ratio constrained by viewport width */}
+      <div className="md:hidden relative w-full" style={{ aspectRatio: '16/9' }}>
+        {block.videoUrl && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src={block.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        
+        {/* Mobile Overlay content */}
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+          <div className="text-center text-white z-10 px-4">
+            {block.heading && (
+              <h1 className="text-3xl font-bold mb-4">
+                {block.heading}
+              </h1>
+            )}
+            {block.subheading && (
+              <p className="text-lg">{block.subheading}</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: Full screen */}
+      <div className="hidden md:block relative w-full h-full">
+        {block.videoUrl && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src={block.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+
+        {/* Desktop Overlay content */}
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+          <div className="text-center text-white z-10">
+            {block.heading && (
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                {block.heading}
+              </h1>
+            )}
+            {block.subheading && (
+              <p className="text-xl md:text-2xl">{block.subheading}</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

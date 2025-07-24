@@ -1,11 +1,11 @@
 import {defineField, defineType} from 'sanity'
-import {TextIcon} from '@sanity/icons'
+import {UsersIcon} from '@sanity/icons'
 
 export const designers = defineType({
   name: 'designers',
   title: 'Designers',
   type: 'object',
-  icon: TextIcon,
+  icon: UsersIcon,
   groups: [
     {
       name: 'content',
@@ -57,8 +57,8 @@ export const designers = defineType({
     },
     prepare({title}) {
       return {
-        title: title || 'Untitled Info Section',
-        subtitle: 'Info Section',
+        title: title || 'Untitled Designers Collection',
+        subtitle: 'Collection of people',
       }
     },
   },
