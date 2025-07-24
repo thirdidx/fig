@@ -46,7 +46,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/tickets"
+                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
                     className="hover:opacity-70 transition-opacity"
                   >
                     Tickets
@@ -74,7 +74,7 @@ export default function Header() {
             {/* Desktop CTA Button */}
             <div className="hidden md:block md:justify-self-end">
               <Link
-                href="/tickets"
+                href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
                 className="btn btn-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3"
               >
                 Buy Tickets
@@ -113,15 +113,6 @@ export default function Header() {
               <ul className="space-y-6">
                 <li>
                   <Link
-                    href="/about"
-                    className="block text-lg hover:opacity-70 transition-opacity"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/designers"
                     className="block text-lg hover:opacity-70 transition-opacity"
                     onClick={() => setIsMenuOpen(false)}
@@ -131,11 +122,29 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/venue"
+                    href="/sponsors"
                     className="block text-lg hover:opacity-70 transition-opacity"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Venue
+                    Sponsors
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                    className="block text-lg hover:opacity-70 transition-opacity"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Tickets
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="block text-lg hover:opacity-70 transition-opacity"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About
                   </Link>
                 </li>
                 <li>
@@ -149,7 +158,7 @@ export default function Header() {
                 </li>
                 <li className="pt-4">
                   <Link
-                    href="/tickets"
+                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
                     className="btn btn-primary block text-center py-3"
                     onClick={() => setIsMenuOpen(false)}
                   >

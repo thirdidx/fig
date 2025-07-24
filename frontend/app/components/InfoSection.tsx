@@ -11,13 +11,9 @@ type InfoProps = {
 
 export default function CTA({ block, isInContainer = false }: InfoProps) {
   return (
-    <div className={isInContainer ? "" : "container mx-auto my-12"}>
+    <div className={isInContainer ? "" : "my-12 px-6 md:px-8 lg:px-12"}>
       <div className="max-w-3xl">
-        {block?.heading && (
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-            {block.heading}
-          </h2>
-        )}
+        {block?.heading && <h2 className="text-2xl">{block.heading}</h2>}
         {block?.subheading && (
           <span className="block mt-4 mb-8 text-lg uppercase font-light text-gray-900/70">
             {block.subheading}

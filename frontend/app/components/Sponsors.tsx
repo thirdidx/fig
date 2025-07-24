@@ -119,6 +119,7 @@ const SponsorItem = ({
   logoSize: string;
   layout: string;
 }) => {
+  
   const logoClasses = getLogoSizeClasses(logoSize);
   const isCarousel = layout === "carousel";
 
@@ -126,7 +127,7 @@ const SponsorItem = ({
     <div
       className={`flex items-center justify-center p-4 ${isCarousel ? "flex-shrink-0" : ""}`}
     >
-      {sponsor.logo?.asset && (
+      {sponsor.logo?.asset?._ref ? (
         <Image
           src={urlForImage(sponsor.logo)?.url() || ""}
           alt={sponsor.logo.alt || sponsor.name}
@@ -134,6 +135,10 @@ const SponsorItem = ({
           height={80}
           className={`${logoClasses} object-contain transition-opacity hover:opacity-75`}
         />
+      ) : (
+        <div className="flex items-center justify-center text-gray-400 text-sm">
+          No Logo
+        </div>
       )}
     </div>
   );
@@ -186,6 +191,7 @@ export default function Sponsors({
   isInContainer = false,
 }: SponsorsProps) {
   const sponsors = block.sponsors || [];
+  
   const layout = block.layout || "grid";
   const columns = block.columns || 4;
   const logoSize = block.logoSize || "medium";

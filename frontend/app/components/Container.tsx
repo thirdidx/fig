@@ -2,7 +2,10 @@ import CTA from "@/app/components/Cta";
 import Info from "@/app/components/InfoSection";
 import MailchimpOptIn from "@/app/components/MailchimpOptIn";
 import DesignersBlock from "@/app/components/DesignersBlock";
+import PeopleBlock from "@/app/components/PeopleBlock";
+import VideoBlock from "@/app/components/VideoBlock";
 import ImageCollection from "@/app/components/ImageCollection";
+import Sponsors from "@/app/components/Sponsors";
 import { CallToAction, InfoSection, Designers } from "@/sanity.types";
 
 // Define types since some may not be in generated types yet
@@ -33,6 +36,44 @@ type MailchimpOptIn = {
   };
 };
 
+type People = {
+  _type: "people";
+  _key?: string;
+  heading?: string;
+  people?: Array<{
+    _id: string;
+    firstName: string;
+    lastName: string;
+    picture: {
+      asset?: any;
+      alt?: string;
+    };
+  }>;
+  layout?: "grid" | "list";
+};
+
+type Video = {
+  _type: "video";
+  _key?: string;
+  heading?: string;
+  description?: string;
+  videoFile?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+    };
+  };
+  orientation: "landscape" | "vertical" | "square" | "original";
+  autoplay?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+  poster?: {
+    asset?: any;
+    alt?: string;
+  };
+};
+
 type ImageCollection = {
   _type: "imageCollection";
   _key?: string;
@@ -59,6 +100,38 @@ type ImageCollection = {
   columns?: number;
 };
 
+type SponsorBlock = {
+  _type: "sponsors";
+  _key?: string;
+  heading?: string;
+  subheading?: string;
+  sponsors?: Array<{
+    _id: string;
+    _type: "sponsor";
+    name: string;
+    logo: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+      };
+      hotspot?: any;
+      crop?: any;
+      alt?: string;
+      _type: "image";
+    };
+    url?: string;
+    description?: string;
+    tier?: "platinum" | "gold" | "silver" | "bronze" | "supporting";
+    featured?: boolean;
+  }>;
+  layout?: "grid" | "row" | "carousel";
+  columns?: number;
+  groupByTier?: boolean;
+  showTierLabels?: boolean;
+  logoSize?: "small" | "medium" | "large";
+  backgroundColor?: "none" | "light-gray" | "white" | "dark";
+};
+
 type Container = {
   _type: "container";
   _key?: string;
@@ -78,7 +151,10 @@ type Container = {
     | InfoSection
     | MailchimpOptIn
     | Designers
+    | People
+    | Video
     | ImageCollection
+    | SponsorBlock
   )[];
 };
 
@@ -93,7 +169,10 @@ const renderItem = (
     | InfoSection
     | MailchimpOptIn
     | Designers
-    | ImageCollection,
+    | People
+    | Video
+    | ImageCollection
+    | SponsorBlock,
   index: number,
   isInContainer: boolean = true
 ) => {
@@ -139,11 +218,43 @@ const renderItem = (
           isInContainer={isInContainer}
         />
       );
+    case "people":
+      return (
+        <PeopleBlock
+          key={index}
+          block={{
+            _type: "people" as const,
+            _key: `people-${index}`,
+            heading: (item as People).heading,
+            people: (item as any).people || [],
+          }}
+          index={index}
+          isInContainer={isInContainer}
+        />
+      );
+    case "video":
+      return (
+        <VideoBlock
+          key={index}
+          block={item as Video}
+          index={index}
+          isInContainer={isInContainer}
+        />
+      );
     case "imageCollection":
       return (
         <ImageCollection
           key={index}
           block={item as ImageCollection}
+          index={index}
+          isInContainer={isInContainer}
+        />
+      );
+    case "sponsors":
+      return (
+        <Sponsors
+          key={index}
+          block={item as SponsorBlock}
           index={index}
           isInContainer={isInContainer}
         />
@@ -192,6 +303,8 @@ export default function Container({ block }: ContainerProps) {
   const backgroundColor = block.backgroundColor || "transparent";
   const verticalPadding = block.verticalPadding || "medium";
 
+
+
   if (!items.length) {
     return null;
   }
@@ -220,7 +333,10 @@ export default function Container({ block }: ContainerProps) {
               | InfoSection
               | MailchimpOptIn
               | Designers
-              | ImageCollection,
+              | People
+              | Video
+              | ImageCollection
+              | SponsorBlock,
             index: number
           ) => (
             <div

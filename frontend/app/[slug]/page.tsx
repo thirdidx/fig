@@ -69,9 +69,7 @@ export default async function Page(props: Props) {
         <div className="container">
           <div className="py-12">
             <div className="max-w-3xl">
-              <h1 className="text-3xl font-medium tracking-tight text-gray-900 sm:text-4xl lg:text-5xl leading-tight">
-                {page.heading}
-              </h1>
+              <h1 className="text-2xl">{page.heading}</h1>
               {page.subheading && (
                 <p className="mt-3 text-base lg:text-lg leading-relaxed text-gray-500 font-normal uppercase tracking-wide">
                   {page.subheading}

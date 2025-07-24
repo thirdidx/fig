@@ -15,6 +15,7 @@ import {sponsors} from './objects/sponsors'
 import {imageCollection} from './objects/imageCollection'
 import {mapEmbed} from './objects/mapEmbed'
 import {people} from './objects/people'
+import {video} from './objects/video'
 
 // Export an array of all the schema types.  This is used in the Sanity Studio configuration. https://www.sanity.io/docs/schema-types
 
@@ -39,4 +40,5 @@ export const schemaTypes = [
   imageCollection,
   mapEmbed,
   people,
+  video,
 ]

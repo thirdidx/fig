@@ -2,6 +2,8 @@ import React from "react";
 
 import Cta from "@/app/components/Cta";
 import DesignersBlock from "@/app/components/DesignersBlock";
+import PeopleBlock from "@/app/components/PeopleBlock";
+import VideoBlock from "@/app/components/VideoBlock";
 import Info from "@/app/components/InfoSection";
 import Hero from "@/app/components/Hero";
 import Container from "@/app/components/Container";
@@ -30,6 +32,8 @@ const Blocks: BlocksType = {
   hero: Hero,
   callToAction: Cta,
   designers: DesignersBlock,
+  people: PeopleBlock,
+  video: VideoBlock,
   infoSection: Info,
   container: Container,
   mailchimpOptIn: MailchimpOptIn,

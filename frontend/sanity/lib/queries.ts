@@ -84,6 +84,18 @@ export const getPageQuery = defineQuery(`
         },
         "layout": layout
       },
+      _type == "people" => {
+        ...,
+        "people": people[]->{
+          ...,
+          ${personReference}
+        },
+        "layout": layout
+      },
+      _type == "video" => {
+        ...,
+        "videoUrl": videoFile.asset->url,
+      },
       _type == "container" => {
         ...,
         items[]{
@@ -97,6 +109,24 @@ export const getPageQuery = defineQuery(`
             "designers": designers[]->{
               ...,
               ${personReference}
+            }
+          },
+          _type == "people" => {
+            ...,
+            "people": people[]->{
+              ...,
+              ${personReference}
+            }
+          },
+          _type == "video" => {
+            ...,
+            "videoUrl": videoFile.asset->url,
+          },
+          _type == "sponsors" => {
+            ...,
+            "sponsors": sponsors[]->{
+              ...,
+              ${sponsorReference}
             }
           }
         }
@@ -113,6 +143,10 @@ export const getPageQuery = defineQuery(`
       },
       _type == "imageCollection" => {
         ...
+      },
+      _type == "video" => {
+        ...,
+        "videoUrl": videoFile.asset->url,
       }
     },
   }
