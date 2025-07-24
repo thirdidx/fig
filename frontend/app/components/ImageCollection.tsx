@@ -153,7 +153,7 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
   const gridClasses = getGridClasses(columns);
 
   const renderImage = (image: ImageItem, index: number, className?: string) => (
-    <div key={image._key} className={`relative overflow-hidden rounded-lg ${className || ''}`}>
+    <div key={image._key} className={`relative overflow-hidden ${className || ''}`}>
       <div className={`relative ${aspectRatioClasses || imageSizeClasses}`}>
         {image.asset && (
           <Image
@@ -182,7 +182,7 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
 
   const renderCarousel = () => (
     <div className="relative">
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden">
         <div 
           className="flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -200,19 +200,19 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-dark/60 hover:bg-dark/80 text-light backdrop-blur-sm p-3 transition-all duration-200"
             aria-label="Previous image"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-dark/60 hover:bg-dark/80 text-light backdrop-blur-sm p-3 transition-all duration-200"
             aria-label="Next image"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -221,13 +221,13 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
 
       {/* Dot Indicators */}
       {showDots && images.length > 1 && (
-        <div className="flex justify-center space-x-2 mt-4">
+        <div className="flex justify-center space-x-3 mt-6">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+              className={`w-2 h-2 transition-all duration-200 ${
+                index === currentIndex ? 'bg-maroon w-6' : 'bg-taupe hover:bg-maroon/70'
               }`}
               aria-label={`Go to image ${index + 1}`}
             />
@@ -239,7 +239,7 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
       {block.autoplay && (
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-colors"
+          className="absolute top-4 right-4 bg-dark/60 hover:bg-dark/80 text-light backdrop-blur-sm p-2 transition-all duration-200"
           aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
         >
           {isPlaying ? (

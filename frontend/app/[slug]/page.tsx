@@ -61,24 +61,17 @@ export default async function Page(props: Props) {
   }
 
   return (
-    <div className="pt-24 bg-light">
+    <div className="bg-light">
       <Head>
         <title>{page.heading}</title>
       </Head>
-      <div className="mb-8 lg:mb-12 pt-12 px-6 lg:px-8">
-        <div className="container">
-          <div className="py-12">
-            <div className="max-w-3xl">
-              <h1 className="text-2xl">{page.heading}</h1>
-              {page.subheading && (
-                <p className="mt-3 text-base lg:text-lg leading-relaxed text-gray-500 font-normal uppercase tracking-wide">
-                  {page.subheading}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
+      <div className="mb-8 pt-8 px-4 container max-w-7xl mx-auto">
+        <h1 className="text-2xl">{page.heading}</h1>
+        {page.subheading && (
+          <p className="font-accent uppercase">{page.subheading}</p>
+        )}
       </div>
+
       <PageBuilderPage page={page as GetPageQueryResult} />
     </div>
   );
