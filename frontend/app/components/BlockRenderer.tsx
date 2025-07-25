@@ -8,6 +8,8 @@ import Info from "@/app/components/InfoSection";
 import Hero from "@/app/components/Hero";
 import Container from "@/app/components/Container";
 import MailchimpOptIn from "@/app/components/MailchimpOptIn";
+import ResendContactForm from "@/app/components/ResendContactForm";
+import Accordion from "@/app/components/Accordion";
 import Sponsors from "@/app/components/Sponsors";
 import ImageCollection from "@/app/components/ImageCollection";
 import { dataAttr } from "@/sanity/lib/utils";
@@ -37,6 +39,8 @@ const Blocks: BlocksType = {
   infoSection: Info,
   container: Container,
   mailchimpOptIn: MailchimpOptIn,
+  resendContactForm: ResendContactForm,
+  accordion: Accordion,
   sponsors: Sponsors,
   imageCollection: ImageCollection,
 };

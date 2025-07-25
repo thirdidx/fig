@@ -13,7 +13,10 @@ export default function Header() {
             {/* Logo and Navigation Links */}
             <div className="flex items-center gap-8">
               {/* Logo */}
-              <Link className="w-[32px] md:w-[90px] block text-current hover:text-ochre transition-colors duration-300" href="/">
+              <Link
+                className="w-[32px] md:w-[90px] block text-current hover:text-ochre transition-colors duration-300"
+                href="/"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 89.73 71.87"
@@ -46,7 +49,7 @@ export default function Header() {
                   </li>
                   <li>
                     <Link
-                      href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                      href="/tickets"
                       className="hover:text-ochre transition-colors duration-300"
                     >
                       Tickets
@@ -75,7 +78,7 @@ export default function Header() {
             {/* Desktop CTA Button */}
             <div className="hidden md:block">
               <Link
-                href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009?aff=website"
                 className="btn btn-primary"
               >
                 Buy Tickets
@@ -162,7 +165,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                    href="/tickets"
                     className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -192,7 +195,7 @@ export default function Header() {
               {/* CTA Button */}
               <div className="mt-12">
                 <Link
-                  href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
+                  href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009?aff=website"
                   className="btn btn-primary w-full justify-center py-4 text-lg font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >

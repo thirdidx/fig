@@ -60,7 +60,10 @@ const getAspectRatioClasses = (aspectRatio: string = "original") => {
   }
 };
 
-const getImageSizeClasses = (size: string = "medium", layout: string = "carousel") => {
+const getImageSizeClasses = (
+  size: string = "medium",
+  layout: string = "carousel"
+) => {
   if (layout === "carousel" || layout === "slideshow") {
     switch (size) {
       case "small":
@@ -72,7 +75,7 @@ const getImageSizeClasses = (size: string = "medium", layout: string = "carousel
         return "h-80 md:h-96";
     }
   }
-  
+
   // For grid/masonry layouts
   switch (size) {
     case "small":
@@ -104,7 +107,10 @@ const getGridClasses = (columns: number = 3) => {
   }
 };
 
-export default function ImageCollection({ block, isInContainer = false }: ImageCollectionProps) {
+export default function ImageCollection({
+  block,
+  isInContainer = false,
+}: ImageCollectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(block.autoplay || false);
 
@@ -153,24 +159,29 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
   const gridClasses = getGridClasses(columns);
 
   const renderImage = (image: ImageItem, index: number, className?: string) => (
-    <div key={image._key} className={`relative overflow-hidden ${className || ''}`}>
+    <div
+      key={image._key}
+      className={`relative overflow-hidden ${className || ""}`}
+    >
       <div className={`relative ${aspectRatioClasses || imageSizeClasses}`}>
         {image.asset && (
           <Image
-            src={urlForImage(image)?.url() || ''}
+            src={urlForImage(image)?.url() || ""}
             alt={image.alt}
             fill
-            className={`object-cover transition-transform hover:scale-105 ${aspectRatioClasses ? '' : 'h-full w-full'}`}
+            className={`object-cover transition-transform hover:scale-105 ${aspectRatioClasses ? "" : "h-full w-full"}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         )}
       </div>
-      
+
       {/* Caption/Credit Overlay */}
       {(showCaptions && image.caption) || (showCredits && image.credit) ? (
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
           {showCaptions && image.caption && (
-            <p className="text-white text-sm font-medium mb-1">{image.caption}</p>
+            <p className="text-white text-sm font-medium mb-1">
+              {image.caption}
+            </p>
           )}
           {showCredits && image.credit && (
             <p className="text-white/80 text-xs">© {image.credit}</p>
@@ -183,7 +194,7 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
   const renderCarousel = () => (
     <div className="relative">
       <div className="overflow-hidden">
-        <div 
+        <div
           className="flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
@@ -203,8 +214,18 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-dark/60 hover:bg-dark/80 text-light backdrop-blur-sm p-3 transition-all duration-200"
             aria-label="Previous image"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button
@@ -212,8 +233,18 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
             className="absolute right-4 top-1/2 -translate-y-1/2 bg-dark/60 hover:bg-dark/80 text-light backdrop-blur-sm p-3 transition-all duration-200"
             aria-label="Next image"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </>
@@ -227,7 +258,9 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 transition-all duration-200 ${
-                index === currentIndex ? 'bg-maroon w-6' : 'bg-taupe hover:bg-maroon/70'
+                index === currentIndex
+                  ? "bg-maroon w-6"
+                  : "bg-taupe hover:bg-maroon/70"
               }`}
               aria-label={`Go to image ${index + 1}`}
             />
@@ -244,11 +277,11 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
         >
           {isPlaying ? (
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
             </svg>
           ) : (
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M8 5v14l11-7z" />
             </svg>
           )}
         </button>
@@ -264,43 +297,43 @@ export default function ImageCollection({ block, isInContainer = false }: ImageC
 
   const renderMasonry = () => (
     <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-      {images.map((image, index) => renderImage(image, index, "break-inside-avoid"))}
+      {images.map((image, index) =>
+        renderImage(image, index, "break-inside-avoid")
+      )}
     </div>
   );
 
   return (
-    <div className={isInContainer ? "md:sticky md:top-0" : "container mx-auto my-12"}>
-      <div className="py-8">
-        {/* Header */}
-        {(block.heading || block.subheading || block.description) && (
-          <div className="text-center mb-8">
-            {block.heading && (
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-                {block.heading}
-              </h2>
-            )}
-            {block.subheading && (
-              <p className="text-lg text-gray-600 mb-2">
-                {block.subheading}
-              </p>
-            )}
-            {block.description && (
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                {block.description}
-              </p>
-            )}
-          </div>
-        )}
+    <div
+      className={
+        isInContainer ? "md:sticky md:top-0" : "container mx-auto my-12"
+      }
+    >
+      {/* Header */}
+      {(block.heading || block.subheading || block.description) && (
+        <div className="text-center mb-8">
+          {block.heading && (
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+              {block.heading}
+            </h2>
+          )}
+          {block.subheading && (
+            <p className="text-lg text-gray-600 mb-2">{block.subheading}</p>
+          )}
+          {block.description && (
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {block.description}
+            </p>
+          )}
+        </div>
+      )}
 
-        {/* Image Display */}
-        {layout === "carousel" || layout === "slideshow" ? (
-          renderCarousel()
-        ) : layout === "masonry" ? (
-          renderMasonry()
-        ) : (
-          renderGrid()
-        )}
-      </div>
+      {/* Image Display */}
+      {layout === "carousel" || layout === "slideshow"
+        ? renderCarousel()
+        : layout === "masonry"
+          ? renderMasonry()
+          : renderGrid()}
     </div>
   );
 }

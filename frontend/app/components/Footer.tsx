@@ -16,14 +16,14 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-light border-gray-100 border-t font-accent uppercase text-taupe">
-      <div className="py-12 px-4 md:px-0 container max-w-7xl mx-auto">
+      <div className="py-12 px-4 container max-w-7xl mx-auto">
         <div className="flex flex-col items-center lg:flex-row">
           <div className="text-sm mb-10 text-center lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left">
             © 2025 fig, inc.
           </div>
           <div className="flex justify-center md:justify-end space-x-2 lg:w-1/2 lg:pl-4">
             {socialLinks.map((item) => (
-              <a key={item.name} href={item.href} className="text-taupe hover:text-ochre transition-colors duration-200"  >
+              <a key={item.name} href={item.href} className="text-sm text-taupe hover:text-ochre transition-colors duration-200"  >
                 {item.name}
               </a>
             ))}

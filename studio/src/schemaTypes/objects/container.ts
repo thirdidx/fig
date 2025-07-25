@@ -21,6 +21,8 @@ export const container = defineType({
         {type: 'callToAction'},
         {type: 'infoSection'},
         {type: 'mailchimpOptIn'},
+        {type: 'resendContactForm'},
+        {type: 'accordion'},
         {type: 'designers'},
         {type: 'people'},
         {type: 'sponsors'},

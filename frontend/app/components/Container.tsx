@@ -1,6 +1,8 @@
 import CTA from "@/app/components/Cta";
 import Info from "@/app/components/InfoSection";
 import MailchimpOptIn from "@/app/components/MailchimpOptIn";
+import ResendContactForm from "@/app/components/ResendContactForm";
+import Accordion from "@/app/components/Accordion";
 import DesignersBlock from "@/app/components/DesignersBlock";
 import PeopleBlock from "@/app/components/PeopleBlock";
 import VideoBlock from "@/app/components/VideoBlock";
@@ -100,6 +102,51 @@ type ImageCollection = {
   columns?: number;
 };
 
+type ResendContactForm = {
+  _type: "resendContactForm";
+  _key?: string;
+  heading: string;
+  subheading?: string;
+  description?: string;
+  namePlaceholder?: string;
+  emailPlaceholder?: string;
+  subjectPlaceholder?: string;
+  messagePlaceholder?: string;
+  buttonText: string;
+  successMessage?: string;
+  errorMessage?: string;
+  requiredFields?: {
+    name?: boolean;
+    email?: boolean;
+    subject?: boolean;
+    message?: boolean;
+  };
+  styling?: {
+    layout?: 'single' | 'two-column';
+    size?: 'small' | 'medium' | 'large';
+  };
+};
+
+type AccordionBlock = {
+  _type: "accordion";
+  _key?: string;
+  heading: string;
+  subheading?: string;
+  description?: string;
+  items: Array<{
+    question: string;
+    answer: string;
+    _key: string;
+  }>;
+  styling?: {
+    type?: 'single' | 'multiple';
+    collapsible?: boolean;
+    defaultOpen?: number;
+    size?: 'small' | 'medium' | 'large';
+    variant?: 'default' | 'bordered' | 'ghost';
+  };
+};
+
 type SponsorBlock = {
   _type: "sponsors";
   _key?: string;
@@ -150,6 +197,8 @@ type Container = {
     | CallToAction
     | InfoSection
     | MailchimpOptIn
+    | ResendContactForm
+    | AccordionBlock
     | Designers
     | People
     | Video
@@ -168,6 +217,8 @@ const renderItem = (
     | CallToAction
     | InfoSection
     | MailchimpOptIn
+    | ResendContactForm
+    | AccordionBlock
     | Designers
     | People
     | Video
@@ -200,6 +251,24 @@ const renderItem = (
         <MailchimpOptIn
           key={index}
           block={item as MailchimpOptIn}
+          index={index}
+          isInContainer={isInContainer}
+        />
+      );
+    case "resendContactForm":
+      return (
+        <ResendContactForm
+          key={index}
+          block={item as ResendContactForm}
+          index={index}
+          isInContainer={isInContainer}
+        />
+      );
+    case "accordion":
+      return (
+        <Accordion
+          key={index}
+          block={item as AccordionBlock}
           index={index}
           isInContainer={isInContainer}
         />
@@ -348,6 +417,8 @@ export default function Container({ block }: ContainerProps) {
               | CallToAction
               | InfoSection
               | MailchimpOptIn
+              | ResendContactForm
+              | AccordionBlock
               | Designers
               | People
               | Video

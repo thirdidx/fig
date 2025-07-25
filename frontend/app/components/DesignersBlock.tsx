@@ -27,7 +27,7 @@ export default function DesignersBlock({
   isInContainer = false,
 }: DesignersBlockProps) {
   return (
-    <section className={isInContainer ? "py-8" : "container py-16 lg:py-20"}>
+    <section className={isInContainer ? "" : "container py-8 lg:py-16"}>
       <div className="max-w-7xl mx-auto">
         {block?.heading && (
           <div className="text-center mb-12 lg:mb-16">
