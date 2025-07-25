@@ -69,25 +69,25 @@ export default function Accordion({ block, isInContainer = false }: AccordionPro
     switch (variant) {
       case 'bordered':
         return {
-          root: 'border border-gray-300 rounded-lg',
-          item: 'border-b border-gray-200 last:border-b-0',
-          trigger: 'bg-white hover:bg-gray-50 focus:bg-gray-50',
-          content: 'bg-white',
+          root: 'border border-taupe',
+          item: 'border-b border-taupe/50 last:border-b-0',
+          trigger: 'bg-light hover:bg-taupe/20 focus:bg-taupe/20',
+          content: 'bg-light',
         };
       case 'ghost':
         return {
           root: 'space-y-2',
-          item: 'border border-gray-200 rounded-md',
-          trigger: 'bg-white hover:bg-gray-50 focus:bg-gray-50',
-          content: 'bg-white',
+          item: 'border border-taupe/50',
+          trigger: 'bg-light hover:bg-taupe/20 focus:bg-taupe/20',
+          content: 'bg-light',
         };
       case 'default':
       default:
         return {
-          root: 'bg-white border border-gray-300 rounded-lg shadow-sm',
-          item: 'border-b border-gray-200 last:border-b-0',
-          trigger: 'bg-white hover:bg-gray-50 focus:bg-gray-50',
-          content: 'bg-gray-50',
+          root: 'bg-light border border-taupe',
+          item: 'border-b border-taupe/50 last:border-b-0',
+          trigger: 'bg-light hover:bg-taupe/20 focus:bg-taupe/20',
+          content: 'bg-light',
         };
     }
   };
@@ -102,16 +102,16 @@ export default function Accordion({ block, isInContainer = false }: AccordionPro
     <div className={isInContainer ? "w-full h-full" : "container mx-auto my-12"}>
       <div className={`max-w-3xl ${isInContainer ? 'w-full' : 'mx-auto'}`}>
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+          <h2 className="text-2xl font-semibold text-maroon mb-3">
             {block.heading}
           </h2>
           {block.subheading && (
-            <p className="text-lg text-gray-600 mb-2">
+            <p className="text-lg text-dark mb-2">
               {block.subheading}
             </p>
           )}
           {block.description && (
-            <p className="text-gray-500 leading-relaxed">
+            <p className="text-taupe leading-relaxed">
               {block.description}
             </p>
           )}
@@ -132,14 +132,14 @@ export default function Accordion({ block, isInContainer = false }: AccordionPro
               >
                 <Header className="flex">
                   <Trigger
-                    className={`flex flex-1 items-center justify-between text-left transition-all duration-200 focus:outline-none group ${sizeClasses.trigger} ${variantClasses.trigger} font-medium text-gray-900`}
+                    className={`flex flex-1 items-center justify-between text-left transition-all duration-200 focus:outline-none group ${sizeClasses.trigger} ${variantClasses.trigger} font-medium text-maroon`}
                   >
                     <span>{item.question}</span>
-                    <ChevronDownIcon className="h-4 w-4 shrink-0 text-gray-600 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    <ChevronDownIcon className="h-4 w-4 shrink-0 text-taupe transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </Trigger>
                 </Header>
                 <Content
-                  className={`overflow-hidden text-gray-700 transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${variantClasses.content}`}
+                  className={`overflow-hidden text-dark transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${variantClasses.content}`}
                 >
                   <div className={sizeClasses.content}>
                     <p className="leading-relaxed whitespace-pre-wrap">
@@ -164,14 +164,14 @@ export default function Accordion({ block, isInContainer = false }: AccordionPro
               >
                 <Header className="flex">
                   <Trigger
-                    className={`flex flex-1 items-center justify-between text-left transition-all duration-200 focus:outline-none group ${sizeClasses.trigger} ${variantClasses.trigger} font-medium text-gray-900`}
+                    className={`flex flex-1 items-center justify-between text-left transition-all duration-200 focus:outline-none group ${sizeClasses.trigger} ${variantClasses.trigger} font-medium text-maroon`}
                   >
                     <span>{item.question}</span>
-                    <ChevronDownIcon className="h-4 w-4 shrink-0 text-gray-600 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    <ChevronDownIcon className="h-4 w-4 shrink-0 text-taupe transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </Trigger>
                 </Header>
                 <Content
-                  className={`overflow-hidden text-gray-700 transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${variantClasses.content}`}
+                  className={`overflow-hidden text-dark transition-all duration-300 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down ${variantClasses.content}`}
                 >
                   <div className={sizeClasses.content}>
                     <p className="leading-relaxed whitespace-pre-wrap">
