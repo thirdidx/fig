@@ -1,26 +1,32 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, email, subject, message } = body;
-
-    // Validate required fields
-    if (!email || !message) {
+    // Check if API key is properly configured
+    if (
+      !process.env.RESEND_API_KEY ||
+      process.env.RESEND_API_KEY === "your_resend_api_key_here"
+    ) {
+      console.error("RESEND_API_KEY is not properly configured");
       return NextResponse.json(
-        { error: 'Email and message are required' },
-        { status: 400 }
+        { error: "Server configuration error: RESEND_API_KEY not set" },
+        { status: 500 }
       );
     }
 
-    // Send email using Resend
-    const data = await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>', // You'll want to use your verified domain
-      to: ['your-email@example.com'], // Replace with your email
-      subject: subject || 'New Contact Form Submission',
+    const body = await request.json();
+    const { name, email, subject, message } = body;
+
+    const sendFrom = `${name || "Website Contact"} <website@figbuffalo.com>`;
+    const sendTo = ["figbuffalo@gmail.com"];
+
+    const { data, error } = await resend.emails.send({
+      from: sendFrom,
+      to: sendTo,
+      subject: `FigBuffalo.com inquiry: ${subject || "Contact Form Submission"}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px;">
@@ -28,21 +34,21 @@ export async function POST(request: NextRequest) {
           </h2>
           
           <div style="margin: 20px 0;">
-            <strong>Name:</strong> ${name || 'Not provided'}
+            <strong>Name:</strong> ${name || "Not provided"}
           </div>
           
           <div style="margin: 20px 0;">
-            <strong>Email:</strong> ${email}
+            <strong>Email:</strong> ${email || "Not provided"}
           </div>
           
           <div style="margin: 20px 0;">
-            <strong>Subject:</strong> ${subject || 'Not provided'}
+            <strong>Subject:</strong> ${subject || "Not provided"}
           </div>
           
           <div style="margin: 20px 0;">
             <strong>Message:</strong>
             <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 10px;">
-              ${message.replace(/\n/g, '<br>')}
+              ${message ? message.replace(/\n/g, "<br>") : "No message provided"}
             </div>
           </div>
           
@@ -56,25 +62,33 @@ export async function POST(request: NextRequest) {
       text: `
 New Contact Form Submission
 
-Name: ${name || 'Not provided'}
-Email: ${email}
-Subject: ${subject || 'Not provided'}
+Name: ${name || "Not provided"}
+Email: ${email || "Not provided"}
+Subject: ${subject || "Not provided"}
 
 Message:
-${message}
+${message || "No message provided"}
 
 ---
 This email was sent from the contact form on your website.
       `,
-      replyTo: email,
     });
 
-    return NextResponse.json({ success: true, id: data.id });
+    if (error) {
+      console.error("Resend API error:", error);
+      return NextResponse.json({ error }, { status: 400 });
+    }
+
+    console.log("Email sent successfully:", data);
+    return NextResponse.json({ data });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
+      {
+        error: "Failed to send email",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 400 }
     );
   }
 }
