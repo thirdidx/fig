@@ -101,7 +101,7 @@ export default async function RootLayout({
           <SanityLive onError={handleError} />
           <Header />
           <main className="flex-1">
-            <div className="max-w-7xl mx-auto">{children}</div>
+            <div className="max-w-7xl mx-auto px-4">{children}</div>
           </main>
           <Footer />
         </section>

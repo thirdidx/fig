@@ -136,7 +136,7 @@ type Container = {
   _type: "container";
   _key?: string;
   heading?: string;
-  spacing?: "small" | "medium" | "large";
+  spacing?: "none" | "small" | "medium" | "large";
   backgroundColor?:
     | "transparent"
     | "light"
@@ -284,15 +284,31 @@ const getBackgroundClass = (backgroundColor: string) => {
   }
 };
 
-const getGridClass = (itemCount: number) => {
+const getGridClass = (itemCount: number, spacing: string) => {
+  const getGapClass = () => {
+    if (!spacing || spacing === "none") return "";
+    switch (spacing) {
+      case "small":
+        return "gap-4";
+      case "medium":
+        return "gap-6";
+      case "large":
+        return "gap-8";
+      default:
+        return "";
+    }
+  };
+
+  const gapClass = itemCount > 1 ? getGapClass() : "";
+
   switch (itemCount) {
     case 1:
       return "flex justify-center";
     case 2:
-      return "grid grid-cols-1 lg:grid-cols-2";
+      return `grid grid-cols-1 lg:grid-cols-2 ${gapClass}`;
     case 3:
     default:
-      return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+      return `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${gapClass}`;
   }
 };
 
@@ -324,7 +340,7 @@ export default function Container({ block }: ContainerProps) {
       )}
 
       <div
-        className={`${getGridClass(itemCount)} ${isScreenHeight ? "h-full" : ""}`}
+        className={`${getGridClass(itemCount, spacing)} ${isScreenHeight ? "h-full" : ""}`}
       >
         {items.map(
           (

@@ -24,7 +24,7 @@ type PeopleBlockProps = {
 
 export default function PeopleBlock({ block, isInContainer = false }: PeopleBlockProps) {
   return (
-    <section className={isInContainer ? "py-8 px-4 " : "container py-16 lg:py-20"}>
+    <section className={isInContainer ? "py-8" : "container py-16 lg:py-20"}>
       <div className="max-w-7xl mx-auto">
         {block?.heading && (
           <div className="text-center md:text-left mb-12 lg:mb-16">

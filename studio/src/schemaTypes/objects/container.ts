@@ -36,6 +36,7 @@ export const container = defineType({
       type: 'string',
       options: {
         list: [
+          {title: 'None', value: 'none'},
           {title: 'Small', value: 'small'},
           {title: 'Medium', value: 'medium'},
           {title: 'Large', value: 'large'},

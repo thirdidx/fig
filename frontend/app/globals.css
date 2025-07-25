@@ -39,7 +39,7 @@
 
 @layer components {
   .btn {
-    @apply text-xs font-bold flex items-center justify-center px-4 py-2 rounded-full transition-all h-8 font-accent uppercase;
+    @apply text-xs md:text-sm uppercase flex items-center justify-center px-4 py-2 rounded-full transition-all h-8 font-accent;
   }
 
   .btn-primary {

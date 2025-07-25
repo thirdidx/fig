@@ -13,7 +13,7 @@ export default function Header() {
             {/* Logo and Navigation Links */}
             <div className="flex items-center gap-8">
               {/* Logo */}
-              <Link className="w-[32px] md:w-[90px] block" href="/">
+              <Link className="w-[32px] md:w-[90px] block text-current hover:text-ochre transition-colors duration-300" href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 89.73 71.87"
@@ -31,7 +31,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/designers"
-                      className="hover:opacity-70 transition-opacity"
+                      className="hover:text-ochre transition-colors duration-300"
                     >
                       Designers
                     </Link>
@@ -39,7 +39,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/sponsors"
-                      className="hover:opacity-70 transition-opacity"
+                      className="hover:text-ochre transition-colors duration-300"
                     >
                       Sponsors
                     </Link>
@@ -47,7 +47,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                      className="hover:opacity-70 transition-opacity"
+                      className="hover:text-ochre transition-colors duration-300"
                     >
                       Tickets
                     </Link>
@@ -55,7 +55,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/about"
-                      className="hover:opacity-70 transition-opacity"
+                      className="hover:text-ochre transition-colors duration-300"
                     >
                       About
                     </Link>
@@ -63,7 +63,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/contact"
-                      className="hover:opacity-70 transition-opacity"
+                      className="hover:text-ochre transition-colors duration-300"
                     >
                       Contact
                     </Link>
@@ -76,7 +76,7 @@ export default function Header() {
             <div className="hidden md:block">
               <Link
                 href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                className="btn btn-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3"
+                className="btn btn-primary"
               >
                 Buy Tickets
               </Link>
@@ -145,7 +145,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/designers"
-                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Designers
@@ -154,7 +154,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/sponsors"
-                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sponsors
@@ -163,7 +163,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009"
-                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Tickets
@@ -172,7 +172,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/about"
-                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     About
@@ -181,7 +181,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/contact"
-                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-gray-300 transition-colors duration-200 py-2 border-b border-transparent hover:border-white/20"
+                    className="block text-white text-lg font-accent uppercase tracking-wide hover:text-ochre transition-colors duration-300 py-2 border-b border-transparent hover:border-ochre/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Contact

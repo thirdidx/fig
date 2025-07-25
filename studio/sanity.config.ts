@@ -119,9 +119,9 @@ export default defineConfig({
       structure, // Custom studio structure configuration, imported from ./src/structure.ts
     }),
     // Additional plugins for enhanced functionality
-    unsplashImageAsset(),
-    assist(),
-    visionTool(),
+    // unsplashImageAsset(),
+    // assist(),
+    // visionTool(),
   ],
 
   // Schema configuration, imported from ./src/schemaTypes/index.ts

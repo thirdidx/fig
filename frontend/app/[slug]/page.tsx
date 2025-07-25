@@ -50,8 +50,6 @@ export default async function Page(props: Props) {
     sanityFetch({ query: getPageQuery, params }),
   ]);
 
-  console.log("Page data:", page);
-
   if (!page?._id) {
     return (
       <div className="py-40">
@@ -65,7 +63,7 @@ export default async function Page(props: Props) {
       <Head>
         <title>{page.heading}</title>
       </Head>
-      <div className="mb-8 pt-8 px-4 container max-w-7xl mx-auto">
+      <div className="mb-8 pt-8 container max-w-7xl mx-auto">
         <h1 className="text-2xl">{page.heading}</h1>
         {page.subheading && (
           <p className="font-accent uppercase">{page.subheading}</p>

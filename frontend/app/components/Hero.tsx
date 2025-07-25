@@ -16,8 +16,6 @@ interface HeroProps {
 export default function Hero({ block }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  console.log("Hero block:", block);
-
   useEffect(() => {
     if (videoRef.current) {
       // Ensure video plays on load
