@@ -11,6 +11,7 @@ import { headers } from "next/headers";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allPostsAndPages = await sanityFetch({
     query: sitemapData,
+    tags: ["pages", "posts"],
   });
   const headersList = await headers();
   const sitemap: MetadataRoute.Sitemap = [];

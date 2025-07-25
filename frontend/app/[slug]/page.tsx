@@ -18,9 +18,10 @@ type Props = {
 export async function generateStaticParams() {
   const { data } = await sanityFetch({
     query: pagesSlugs,
-    // // Use the published perspective in generateStaticParams
+    // Use the published perspective in generateStaticParams
     perspective: "published",
     stega: false,
+    tags: ["pages"],
   });
   return data;
 }
@@ -36,6 +37,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     params,
     // Metadata should never contain stega
     stega: false,
+    tags: ["pages", `page:${params.slug}`],
   });
 
   return {
@@ -47,7 +49,11 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function Page(props: Props) {
   const params = await props.params;
   const [{ data: page }] = await Promise.all([
-    sanityFetch({ query: getPageQuery, params }),
+    sanityFetch({ 
+      query: getPageQuery, 
+      params,
+      tags: ["pages", `page:${params.slug}`]
+    }),
   ]);
 
   if (!page?._id) {
