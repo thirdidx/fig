@@ -67,6 +67,7 @@ export const MorePosts = async ({
   const { data } = await sanityFetch({
     query: morePostsQuery,
     params: { skip, limit },
+    tags: ["posts"],
   });
 
   if (!data || data.length === 0) {
@@ -81,7 +82,10 @@ export const MorePosts = async ({
 };
 
 export const AllPosts = async () => {
-  const { data } = await sanityFetch({ query: allPostsQuery });
+  const { data } = await sanityFetch({ 
+    query: allPostsQuery,
+    tags: ["posts"],
+  });
 
   if (!data || data.length === 0) {
     return <OnBoarding />;

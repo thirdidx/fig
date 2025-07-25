@@ -8,6 +8,7 @@ export default async function Page() {
   const { data } = await sanityFetch({
     query: getPageQuery,
     params: { slug: "home" },
+    tags: ["pages", "page:home"],
   });
 
   return (

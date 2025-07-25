@@ -25,6 +25,7 @@ export async function generateStaticParams() {
     // Use the published perspective in generateStaticParams
     perspective: "published",
     stega: false,
+    tags: ["posts"],
   });
   return data;
 }
@@ -43,6 +44,7 @@ export async function generateMetadata(
     params,
     // Metadata should never contain stega
     stega: false,
+    tags: ["posts", `post:${params.slug}`],
   });
   const previousImages = (await parent).openGraph?.images || [];
   const ogImage = resolveOpenGraphImage(post?.coverImage);
@@ -63,7 +65,11 @@ export async function generateMetadata(
 export default async function PostPage(props: Props) {
   const params = await props.params;
   const [{ data: post }] = await Promise.all([
-    sanityFetch({ query: postQuery, params }),
+    sanityFetch({ 
+      query: postQuery, 
+      params,
+      tags: ["posts", `post:${params.slug}`]
+    }),
   ]);
 
   if (!post?._id) {
