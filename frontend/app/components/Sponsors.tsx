@@ -235,8 +235,8 @@ export default function Sponsors({
                   </h3>
                 )}
                 {layout === "carousel" ? (
-                  <div className="overflow-hidden">
-                    <div className="flex animate-marquee gap-6 pb-4">
+                  <div className="overflow-hidden group">
+                    <div className="flex animate-marquee gap-6 pb-4 grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
                       {[...tierSponsors, ...tierSponsors].map((sponsor, index) => (
                         <SponsorItem
                           key={`${sponsor._id}-${index}`}
@@ -264,8 +264,8 @@ export default function Sponsors({
           )}
         </div>
       ) : layout === "carousel" ? (
-        <div className="overflow-hidden">
-          <div className="flex animate-marquee gap-6 pb-4">
+        <div className="overflow-hidden group">
+          <div className="flex animate-marquee gap-6 pb-4 grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
             {[...sponsors, ...sponsors].map((sponsor, index) => (
               <SponsorItem
                 key={`${sponsor._id}-${index}`}

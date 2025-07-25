@@ -2,19 +2,26 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
+  const bgColorClass = isHomepage ? "transparent" : "bg-light/90 bg-blur";
+  const textColorClass = isHomepage ? "text-light" : "text-dark";
+
   return (
     <>
-      <header className="container mx-auto max-w-7xl">
-        <div className="py-4 px-4 md:px-4 h-full">
-          <div className="flex items-center justify-between h-full">
-            {/* Logo and Navigation Links */}
-            <div className="flex items-center gap-8">
-              {/* Logo */}
+      <header
+        className={`fixed top-0 left-0 w-full z-50 p-4 ${bgColorClass} ${textColorClass}`}
+      >
+        <div className="h-full">
+          <div className="md:grid md:grid-cols-12 flex justify-between md:block items-center h-full">
+            {/* Logo - 2 columns */}
+            <div className="md:col-span-1">
               <Link
-                className="w-[32px] md:w-[90px] block text-current hover:text-ochre transition-colors duration-300"
+                className="w-[32px] md:w-[44px] lg:w-[60px] xl:w-[90px] block text-current hover:text-ochre transition-colors duration-300"
                 href="/"
               >
                 <svg
@@ -27,56 +34,56 @@ export default function Header() {
                   />
                 </svg>
               </Link>
-
-              {/* Desktop Navigation Links */}
-              <nav className="hidden md:block">
-                <ul className="flex items-center gap-6 text-sm md:text-base font-normal font-accent uppercase">
-                  <li>
-                    <Link
-                      href="/designers"
-                      className="hover:text-ochre transition-colors duration-300"
-                    >
-                      Designers
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/sponsors"
-                      className="hover:text-ochre transition-colors duration-300"
-                    >
-                      Sponsors
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/tickets"
-                      className="hover:text-ochre transition-colors duration-300"
-                    >
-                      Tickets
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="hover:text-ochre transition-colors duration-300"
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="hover:text-ochre transition-colors duration-300"
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
             </div>
 
-            {/* Desktop CTA Button */}
-            <div className="hidden md:block">
+            {/* Desktop Navigation Links - starts at column 3 */}
+            <nav className="hidden md:block md:col-span-9">
+              <ul className="flex items-center gap-6 text-sm md:text-base font-normal font-accent uppercase">
+                <li>
+                  <Link
+                    href="/designers"
+                    className="hover:text-ochre transition-colors duration-300"
+                  >
+                    Designers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/sponsors"
+                    className="hover:text-ochre transition-colors duration-300"
+                  >
+                    Sponsors
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/tickets"
+                    className="hover:text-ochre transition-colors duration-300"
+                  >
+                    Tickets
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="hover:text-ochre transition-colors duration-300"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-ochre transition-colors duration-300"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            {/* Desktop CTA Button - 2 columns */}
+            <div className="hidden md:block col-span-2 justify-self-end">
               <Link
                 href="https://www.eventbrite.com/e/figtm-vol-3-fashion-show-tickets-1419416516009?aff=website"
                 className="btn btn-primary"
@@ -87,18 +94,18 @@ export default function Header() {
 
             {/* Mobile Hamburger Button */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 backdrop-blur-sm transition-all duration-300"
+              className="md:hidden col-span-10 justify-self-end flex flex-col justify-center items-center w-10 h-10 backdrop-blur-sm transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               <span
-                className={`w-5 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 bg-black transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 bg-black transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
               ></span>
             </button>
           </div>

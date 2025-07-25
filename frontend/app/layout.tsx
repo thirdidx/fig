@@ -2,11 +2,9 @@ import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-// import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import { draftMode } from "next/headers";
 import { VisualEditing, toPlainText } from "next-sanity";
-import { Toaster } from "sonner";
 
 import DraftModeToast from "@/app/components/DraftModeToast";
 import Footer from "@/app/components/Footer";
@@ -62,18 +60,6 @@ const veneer = localFont({
   variable: "--font-veneer",
 });
 
-// const instrumentSans = Instrument_Sans({
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"],
-//   variable: "--font-instrument-sans",
-// });
-
-// const instrumentSerif = Instrument_Serif({
-//   subsets: ["latin"],
-//   weight: ["400"],
-//   variable: "--font-instrument-serif",
-// });
-
 export default async function RootLayout({
   children,
 }: {
@@ -101,7 +87,7 @@ export default async function RootLayout({
           <SanityLive onError={handleError} />
           <Header />
           <main className="flex-1">
-            <div className="max-w-7xl mx-auto px-4">{children}</div>
+            <div>{children}</div>
           </main>
           <Footer />
         </section>

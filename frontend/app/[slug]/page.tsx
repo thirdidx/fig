@@ -59,18 +59,25 @@ export default async function Page(props: Props) {
   }
 
   return (
-    <div className="bg-light">
+    <div className="bg-light px-4 pt-32">
       <Head>
         <title>{page.heading}</title>
       </Head>
-      <div className="mb-8 pt-8 container max-w-7xl mx-auto">
-        <h1 className="text-2xl">{page.heading}</h1>
-        {page.subheading && (
-          <p className="font-accent uppercase">{page.subheading}</p>
-        )}
+      <div className="mb-8 pt-8">
+        <div className="grid grid-cols-12">
+          <div className="col-span-10 col-start-2">
+            <div className="flex flex-col gap-4">
+              <div>
+                <h1 className="text-2xl">{page.heading}</h1>
+                {page.subheading && (
+                  <p className="font-accent uppercase">{page.subheading}</p>
+                )}
+              </div>
+              <PageBuilderPage page={page as GetPageQueryResult} />
+            </div>
+          </div>
+        </div>
       </div>
-
-      <PageBuilderPage page={page as GetPageQueryResult} />
     </div>
   );
 }
