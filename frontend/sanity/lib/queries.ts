@@ -147,6 +147,73 @@ export const getPageQuery = defineQuery(`
       _type == "video" => {
         ...,
         "videoUrl": videoFile.asset->url,
+      },
+      _type == "pageLayout" => {
+        ...,
+        leftColumn[]{
+          ...,
+          _type == "callToAction" => {
+            ...,
+            ${linkFields}
+          },
+          _type == "designers" => {
+            ...,
+            "designers": designers[]->{
+              ...,
+              ${personReference}
+            }
+          },
+          _type == "people" => {
+            ...,
+            "people": people[]->{
+              ...,
+              ${personReference}
+            }
+          },
+          _type == "video" => {
+            ...,
+            "videoUrl": videoFile.asset->url,
+          },
+          _type == "sponsors" => {
+            ...,
+            "sponsors": sponsors[]->{
+              ...,
+              ${sponsorReference}
+            }
+          }
+        },
+        rightColumn[]{
+          ...,
+          _type == "callToAction" => {
+            ...,
+            ${linkFields}
+          },
+          _type == "designers" => {
+            ...,
+            "designers": designers[]->{
+              ...,
+              ${personReference}
+            }
+          },
+          _type == "people" => {
+            ...,
+            "people": people[]->{
+              ...,
+              ${personReference}
+            }
+          },
+          _type == "video" => {
+            ...,
+            "videoUrl": videoFile.asset->url,
+          },
+          _type == "sponsors" => {
+            ...,
+            "sponsors": sponsors[]->{
+              ...,
+              ${sponsorReference}
+            }
+          }
+        }
       }
     },
   }
