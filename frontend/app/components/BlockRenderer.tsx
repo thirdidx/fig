@@ -7,6 +7,7 @@ import VideoBlock from "@/app/components/VideoBlock";
 import Info from "@/app/components/InfoSection";
 import Hero from "@/app/components/Hero";
 import Container from "@/app/components/Container";
+import PageLayout from "@/app/components/PageLayout";
 import MailchimpOptIn from "@/app/components/MailchimpOptIn";
 import ResendContactForm from "@/app/components/ResendContactForm";
 import Accordion from "@/app/components/Accordion";
@@ -38,6 +39,7 @@ const Blocks: BlocksType = {
   video: VideoBlock,
   infoSection: Info,
   container: Container,
+  pageLayout: PageLayout,
   mailchimpOptIn: MailchimpOptIn,
   resendContactForm: ResendContactForm,
   accordion: Accordion,

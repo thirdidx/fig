@@ -14,6 +14,7 @@ import {mailchimpOptIn} from './objects/mailchimpOptIn'
 import {sponsors} from './objects/sponsors'
 import {imageCollection} from './objects/imageCollection'
 import {mapEmbed} from './objects/mapEmbed'
+import {pageLayout} from './objects/pageLayout'
 import {people} from './objects/people'
 import {video} from './objects/video'
 import {resendContactForm} from './objects/resendContactForm'
@@ -36,6 +37,7 @@ export const schemaTypes = [
   hero,
   link,
   designers,
+  pageLayout,
   container,
   mailchimpOptIn,
   sponsors,
