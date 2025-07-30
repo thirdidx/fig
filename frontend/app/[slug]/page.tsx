@@ -49,10 +49,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function Page(props: Props) {
   const params = await props.params;
   const [{ data: page }] = await Promise.all([
-    sanityFetch({ 
-      query: getPageQuery, 
+    sanityFetch({
+      query: getPageQuery,
       params,
-      tags: ["pages", `page:${params.slug}`]
+      tags: ["pages", `page:${params.slug}`],
     }),
   ]);
 
@@ -71,7 +71,7 @@ export default async function Page(props: Props) {
       </Head>
       <div className="mb-8 pt-8">
         <div className="grid grid-cols-12">
-          <div className="col-span-10 col-start-2">
+          <div className="md:col-span-10 md:col-start-2 col-span-12">
             <div className="flex flex-col gap-4">
               <div>
                 <h1 className="text-2xl">{page.heading}</h1>

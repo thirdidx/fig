@@ -122,8 +122,8 @@ type ResendContactForm = {
     message?: boolean;
   };
   styling?: {
-    layout?: 'single' | 'two-column';
-    size?: 'small' | 'medium' | 'large';
+    layout?: "single" | "two-column";
+    size?: "small" | "medium" | "large";
   };
 };
 
@@ -139,11 +139,11 @@ type AccordionBlock = {
     _key: string;
   }>;
   styling?: {
-    type?: 'single' | 'multiple';
+    type?: "single" | "multiple";
     collapsible?: boolean;
     defaultOpen?: number;
-    size?: 'small' | 'medium' | 'large';
-    variant?: 'default' | 'bordered' | 'ghost';
+    size?: "small" | "medium" | "large";
+    variant?: "default" | "bordered" | "ghost";
   };
 };
 
@@ -179,7 +179,7 @@ type SponsorBlock = {
   backgroundColor?: "none" | "light-gray" | "white" | "dark";
 };
 
-type PageLayoutItem = 
+type PageLayoutItem =
   | CallToAction
   | InfoSection
   | MailchimpOptIn
@@ -423,8 +423,8 @@ export default function PageLayout({ block }: PageLayoutProps) {
 
   return (
     <div className={`w-full ${getBackgroundClass(backgroundColor)}`}>
-      <div 
-        className={`container mx-auto px-4 ${getPaddingClass(verticalPadding)} ${isScreenHeight ? "flex flex-col justify-center" : ""}`}
+      <div
+        className={`container mx-auto ${getPaddingClass(verticalPadding)} ${isScreenHeight ? "flex flex-col justify-center" : ""}`}
       >
         {block.heading && (
           <div className="text-center mb-8">
@@ -436,30 +436,22 @@ export default function PageLayout({ block }: PageLayoutProps) {
           </div>
         )}
 
-        <div 
+        <div
           className={`grid ${getLayoutClasses(layoutType)} ${getGapClass(spacing)} ${isScreenHeight ? "h-full" : ""}`}
         >
           {/* Left Column */}
-          {leftColumn.length > 0 && (
-            <div className={`${getColumnSpacing(spacing)}`}>
-              {leftColumn.map((item, index) => (
-                <div key={`left-${index}`}>
-                  {renderItem(item, index, true)}
-                </div>
-              ))}
-            </div>
-          )}
+          <div className={`${getColumnSpacing(spacing)}`}>
+            {leftColumn.map((item, index) => (
+              <div key={`left-${index}`}>{renderItem(item, index, true)}</div>
+            ))}
+          </div>
 
           {/* Right Column */}
-          {rightColumn.length > 0 && (
-            <div className={`${getColumnSpacing(spacing)}`}>
-              {rightColumn.map((item, index) => (
-                <div key={`right-${index}`}>
-                  {renderItem(item, index, true)}
-                </div>
-              ))}
-            </div>
-          )}
+          <div className={`${getColumnSpacing(spacing)}`}>
+            {rightColumn.map((item, index) => (
+              <div key={`right-${index}`}>{renderItem(item, index, true)}</div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
