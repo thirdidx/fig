@@ -7,9 +7,9 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomepage = pathname === "/";
-  const bgColorClass = isHomepage ? "transparent" : "bg-light/90 bg-blur";
-  const textColorClass = isHomepage ? "text-light" : "text-dark";
+  const isDynamicSlugPath = pathname.startsWith("/") && pathname !== "/" && !pathname.startsWith("/posts/");
+  const bgColorClass = isDynamicSlugPath ? "bg-light/90 bg-blur" : "transparent";
+  const textColorClass = isDynamicSlugPath ? "text-dark" : "text-light";
 
   return (
     <>
@@ -17,7 +17,7 @@ export default function Header() {
         className={`fixed top-0 left-0 w-full z-50 p-4 ${bgColorClass} ${textColorClass}`}
       >
         <div className="h-full">
-          <div className="md:grid md:grid-cols-12 flex justify-between md:block items-center h-full">
+          <div className="md:grid md:grid-cols-12 flex justify-between items-center h-full">
             {/* Logo - 2 columns */}
             <div className="md:col-span-1">
               <Link
@@ -99,13 +99,13 @@ export default function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
+                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
               ></span>
             </button>
           </div>
