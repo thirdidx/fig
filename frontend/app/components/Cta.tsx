@@ -19,7 +19,7 @@ export default function CTA({ block, isInContainer = false }: CtaProps) {
       <div
         className={`bg-maroon ${isInContainer ? "w-full h-full flex items-center justify-center" : "rounded-lg max-w-3xl"}`}
       >
-        <div className="flex flex-col gap-6 max-w-lg p-8 md:p-12">
+        <div className="flex flex-col gap-6 p-8">
           <div className="flex flex-col gap-3">
             <h2 className="text-2xl text-light">{block.heading}</h2>
             <p className="text-light leading-relaxed text-lg">{block.text}</p>

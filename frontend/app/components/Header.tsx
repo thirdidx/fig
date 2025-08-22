@@ -7,9 +7,14 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isDynamicSlugPath = pathname.startsWith("/") && pathname !== "/" && !pathname.startsWith("/posts/");
-  const bgColorClass = isDynamicSlugPath ? "bg-light/90 bg-blur" : "transparent";
-  const textColorClass = isDynamicSlugPath ? "text-dark" : "text-light";
+  // Strictly check if we're on the homepage
+  const isHomepage = pathname === "/" || pathname === "";
+  // Homepage: transparent bg, light text
+  // All other pages: filled bg, dark text
+  const bgColorClass = isHomepage
+    ? "bg-transparent"
+    : "bg-light/90 backdrop-blur-md";
+  const textColorClass = isHomepage ? "text-light" : "text-dark";
 
   return (
     <>
@@ -99,13 +104,13 @@ export default function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "opacity-0" : ""}`}
               ></span>
               <span
-                className={`w-5 h-0.5 ${isDynamicSlugPath ? "bg-black" : "bg-white"} transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
+                className={`w-5 h-0.5 ${isHomepage ? "bg-white" : "bg-black"} transition-all duration-300 mt-1 ${isMenuOpen ? "-rotate-45 -translate-y-1" : ""}`}
               ></span>
             </button>
           </div>
